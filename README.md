@@ -32,7 +32,7 @@
 
 点击链接加入 qq 群聊
 
-- [【elegant-wui-uni 交流群：739050558】](https://jq.qq.com/?_wv=1027&k=CtrM9ce2)
+- [【elegant-wui-uni 交流群：739050558】](https://qm.qq.com/q/JZMx7dJka)
 
 ## `Star`
 
