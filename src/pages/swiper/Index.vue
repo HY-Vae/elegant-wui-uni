@@ -181,25 +181,25 @@
 import { ref } from 'vue'
 
 const swiperList = ref([
-  'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/redpanda.jpg',
-  'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/capybara.jpg',
-  'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/panda.jpg',
-  'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/moon.jpg',
-  'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/meng.jpg'
+  'https://cdn.pixabay.com/photo/2014/10/10/10/49/forest-483207_1280.jpg',
+  'https://cdn.pixabay.com/photo/2018/04/06/00/25/trees-3294681_640.jpg',
+  'https://cdn.pixabay.com/photo/2020/09/22/11/36/moss-5592802_640.jpg',
+  'https://cdn.pixabay.com/photo/2016/08/11/23/55/trees-1587301_640.jpg',
+  'https://cdn.pixabay.com/photo/2017/03/29/11/48/meadow-2184989_640.jpg'
 ])
 
 const customSwiperList = ref([
-  { url: 'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/redpanda.jpg', title: '小熊猫！' },
-  { url: 'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/capybara.jpg', title: '卡！皮！巴！拉！' },
-  { url: 'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/panda.jpg', title: '大熊猫！' },
-  { url: 'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/moon.jpg', title: '诗画中国！' }
+  { url: 'https://cdn.pixabay.com/photo/2016/11/18/12/41/autumn-1834228_640.jpg', title: '小熊猫！' },
+  { url: 'https://cdn.pixabay.com/photo/2012/11/29/14/35/florida-67897_640.jpg', title: '卡！皮！巴！拉！' },
+  { url: 'https://cdn.pixabay.com/photo/2015/11/12/21/27/fern-1041021_640.jpg', title: '大熊猫！' },
+  { url: 'https://cdn.pixabay.com/photo/2020/11/13/20/10/forest-5739807_640.jpg', title: '诗画中国！' }
 ])
 
 const videoList = ref([
-  'https://unpkg.com/elegant-wui-uni-assets@1.0.3/VID_115503.mp4',
-  'https://unpkg.com/elegant-wui-uni-assets@1.0.3/VID_150752.mp4',
-  'https://unpkg.com/elegant-wui-uni-assets@1.0.3/VID_155516.mp4',
-  'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/moon.jpg'
+  'https://standard-hospital-xnykd.oss-cn-hangzhou.aliyuncs.com/sys/video/1735897454073_.mp4',
+  'https://standard-hospital-xnykd.oss-cn-hangzhou.aliyuncs.com/sys/video/1735897475859_.mp4',
+  'https://standard-hospital-xnykd.oss-cn-hangzhou.aliyuncs.com/sys/video/1735897494353_.mp4',
+  'https://cdn.pixabay.com/photo/2016/04/23/21/51/fern-1348353_640.jpg'
 ])
 
 const current = ref<number>(0)

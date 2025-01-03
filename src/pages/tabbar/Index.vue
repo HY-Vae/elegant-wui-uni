@@ -40,7 +40,7 @@
         <wui-tabbar-item :value="2" title="首页" icon="home"></wui-tabbar-item>
         <wui-tabbar-item :value="2" icon="cart" title="分类">
           <template #icon>
-            <wui-img round height="40rpx" width="40rpx" src="https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/panda.jpg"></wui-img>
+            <wui-img round height="40rpx" width="40rpx" src="https://cdn.pixabay.com/photo/2023/06/10/06/36/pink-8053329_640.jpg"></wui-img>
           </template>
         </wui-tabbar-item>
         <wui-tabbar-item :value="3" title="我的" icon="user"></wui-tabbar-item>

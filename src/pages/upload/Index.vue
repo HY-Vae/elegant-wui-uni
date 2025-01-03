@@ -92,7 +92,7 @@ import { ref } from 'vue'
 const action: string = 'https://mockapi.eolink.com/zhTuw2P8c29bc981a741931bdd86eb04dc1e8fd64865cb5/upload'
 const fileList = ref<UploadFile[]>([
   {
-    url: 'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/panda.jpg'
+    url: 'https://cdn.pixabay.com/photo/2020/05/03/13/09/puppy-5124947_640.jpg'
   }
 ])
 
@@ -117,7 +117,7 @@ const fileList14 = ref<UploadFile[]>([])
 const fileList15 = ref<UploadFile[]>([])
 const fileList16 = ref<UploadFile[]>([
   {
-    url: 'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/panda.jpg',
+    url: 'https://cdn.pixabay.com/photo/2023/01/12/05/32/duck-7713310_640.jpg',
     name: 'panda'
   }
 ])

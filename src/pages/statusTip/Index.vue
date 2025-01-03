@@ -40,7 +40,7 @@
     </demo-block>
 
     <demo-block title="自定义图片">
-      <wui-status-tip image="https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/panda.jpg" tip="查看我的头像" />
+      <wui-status-tip image="https://cdn.pixabay.com/photo/2024/04/08/22/31/forest-8684668_960_720.jpg" tip="查看我的头像" />
     </demo-block>
 
     <demo-block title="插槽自定义图片内容">

@@ -60,28 +60,28 @@ const list1 = ref([
     value: '李雷',
     disabled: false,
     payload: {
-      avatar: 'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/redpanda.jpg'
+      avatar: 'https://cdn.pixabay.com/photo/2023/03/13/23/48/woman-7851025_960_720.jpg'
     }
   },
   {
     value: '韩梅梅',
     disabled: false,
     payload: {
-      avatar: 'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/capybara.jpg'
+      avatar: 'https://cdn.pixabay.com/photo/2022/06/26/12/48/animal-7285346_960_720.jpg'
     }
   },
   {
     value: '林涛',
     disabled: true,
     payload: {
-      avatar: 'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/panda.jpg'
+      avatar: 'https://cdn.pixabay.com/photo/2024/11/24/06/33/fireworks-9220290_960_720.jpg'
     }
   },
   {
     value: 'Tom',
     disabled: false,
     payload: {
-      avatar: 'https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/meng.jpg'
+      avatar: 'https://cdn.pixabay.com/photo/2022/10/02/06/12/dent-blanche-7492786_960_720.jpg'
     }
   }
 ])
