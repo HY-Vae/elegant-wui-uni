@@ -166,22 +166,23 @@ const tab = ref('Design')
 
 ## Tabs Attributes
 
-| 参数          | 说明                                             | 类型            | 可选值   | 默认值 | 最低版本         |
-| ------------- | ------------------------------------------------ | --------------- | -------- | ------ | ---------------- |
-| v-model       | 绑定值                                           | string / number | -        | -      | -                |
-| slidable-num  | 可滑动的标签数阈值，`slidable`设置为`auto`时生效 | number          | -        | 6      | -                |
-| map-num       | 显示导航地图的标签数阈值                         | number          | -        | 10     | -                |
-| sticky        | 粘性布局                                         | boolean         | -        | false  | -                |
-| offset-top    | 粘性布局时距离窗口顶部距离                       | number          | -        | 0      | -                |
-| swipeable     | 开启手势滑动                                     | boolean         | -        | false  | -                |
-| lineWidth     | 底部条宽度，单位像素                             | number          | -        | 19     | -                |
-| autoLineWidth | 底部条宽度跟随文字，指定`lineWidth`时此选项不生效  | boolean         | -      | false  | $LOWEST_VERSION$   |
-| lineHeight    | 底部条高度，单位像素                             | number          | -        | 3      | -                |
-| color         | 文字颜色                                         | string          | -        | -      | -                |
-| inactiveColor | 非活动标签文字颜色                               | string          | -        | -      | -                |
-| animated      | 是否开启切换标签内容时的转场动画                 | boolean         | -        | false  | -                |
-| duration      | 切换动画过渡时间，单位毫秒                       | number          | -        | 300    | -                |
-| slidable      | 是否开启滚动导航                                 | TabsSlidable    | `always` | `auto` | $LOWEST_VERSION$ |
+| 参数          | 说明                                              | 类型            | 可选值   | 默认值 | 最低版本         |
+| ------------- | ------------------------------------------------- | --------------- | -------- | ------ | ---------------- |
+| v-model       | 绑定值                                            | string / number | -        | -      | -                |
+| slidable-num  | 可滑动的标签数阈值，`slidable`设置为`auto`时生效  | number          | -        | 6      | -                |
+| map-num       | 显示导航地图的标签数阈值                          | number          | -        | 10     | -                |
+| map-title     | 导航地图标题                                      | string          | -        | -      | $LOWEST_VERSION$ |
+| sticky        | 粘性布局                                          | boolean         | -        | false  | -                |
+| offset-top    | 粘性布局时距离窗口顶部距离                        | number          | -        | 0      | -                |
+| swipeable     | 开启手势滑动                                      | boolean         | -        | false  | -                |
+| lineWidth     | 底部条宽度，单位像素                              | number          | -        | 19     | -                |
+| autoLineWidth | 底部条宽度跟随文字，指定`lineWidth`时此选项不生效 | boolean         | -        | false  | $LOWEST_VERSION$ |
+| lineHeight    | 底部条高度，单位像素                              | number          | -        | 3      | -                |
+| color         | 文字颜色                                          | string          | -        | -      | -                |
+| inactiveColor | 非活动标签文字颜色                                | string          | -        | -      | -                |
+| animated      | 是否开启切换标签内容时的转场动画                  | boolean         | -        | false  | -                |
+| duration      | 切换动画过渡时间，单位毫秒                        | number          | -        | 300    | -                |
+| slidable      | 是否开启滚动导航                                  | TabsSlidable    | `always` | `auto` | $LOWEST_VERSION$ |
 
 ## Tab Attributes
 
