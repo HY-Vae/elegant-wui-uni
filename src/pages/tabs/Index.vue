@@ -84,13 +84,13 @@
     </demo-block>
 
     <demo-block title="左对齐超出即可滚动" transparent>
-      <wd-tabs v-model="tab9" slidable="always" @change="handleChange">
+      <wui-tabs v-model="tab9" slidable="always" @change="handleChange">
         <block v-for="item in 5" :key="item">
-          <wd-tab :title="`超大标签${item}`">
+          <wui-tab :title="`超大标签${item}`">
             <view class="content">内容{{ tab9 + 1 }}</view>
-          </wd-tab>
+          </wui-tab>
         </block>
-      </wd-tabs>
+      </wui-tabs>
     </demo-block>
 
     <demo-block title="数量大于10时出现导航地图" transparent>

@@ -45,7 +45,7 @@ export default {
 <script lang="ts" setup>
 import wuiIcon from '../wui-icon/wui-icon.vue'
 import wuiOverlay from '../wui-overlay/wui-overlay.vue'
-import wuiTransition from '../wd-transition/wd-transition.vue'
+import wuiTransition from '../wui-transition/wui-transition.vue'
 import { computed, onBeforeMount, ref } from 'vue'
 import { popupProps } from './types'
 import type { TransitionName } from '../wui-transition/types'

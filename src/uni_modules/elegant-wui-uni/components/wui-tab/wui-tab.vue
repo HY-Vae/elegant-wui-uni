@@ -1,6 +1,6 @@
 <template>
   <view :class="`wui-tab ${customClass}`" :style="customStyle">
-    <view v-if="painted" class="wd-tab__body" :style="tabBodyStyle">
+    <view v-if="painted" class="wui-tab__body" :style="tabBodyStyle">
       <slot />
     </view>
   </view>

@@ -2,7 +2,7 @@
   <template v-if="sticky">
     <wui-sticky-box>
       <view
-        :class="`wd-tabs ${customClass} ${innerSlidable ? 'is-slide' : ''} ${mapNum < items.length && mapNum !== 0 ? 'is-map' : ''}`"
+        :class="`wui-tabs ${customClass} ${innerSlidable ? 'is-slide' : ''} ${mapNum < items.length && mapNum !== 0 ? 'is-map' : ''}`"
         :style="customStyle"
       >
         <wui-sticky :offset-top="offsetTop">
@@ -20,7 +20,7 @@
                     :style="state.activeIndex === index ? (color ? 'color:' + color : '') : inactiveColor ? 'color:' + inactiveColor : ''"
                   >
                     {{ item.title }}
-                    <view class="wd-tabs__line wd-tabs__line--inner" v-if="state.activeIndex === index && state.useInnerLine"></view>
+                    <view class="wui-tabs__line wui-tabs__line--inner" v-if="state.activeIndex === index && state.useInnerLine"></view>
                   </view>
                   <!--下划线-->
                   <view class="wui-tabs__line" :style="state.lineStyle"></view>
@@ -77,7 +77,7 @@
   </template>
 
   <template v-else>
-    <view :class="`wd-tabs ${customClass} ${innerSlidable ? 'is-slide' : ''} ${mapNum < items.length && mapNum !== 0 ? 'is-map' : ''}`">
+    <view :class="`wui-tabs ${customClass} ${innerSlidable ? 'is-slide' : ''} ${mapNum < items.length && mapNum !== 0 ? 'is-map' : ''}`">
       <!--头部导航容器-->
       <view class="wui-tabs__nav">
         <view class="wui-tabs__nav--wrap">
@@ -92,7 +92,7 @@
                 :style="state.activeIndex === index ? (color ? 'color:' + color : '') : inactiveColor ? 'color:' + inactiveColor : ''"
               >
                 {{ item.title }}
-                <view class="wd-tabs__line wd-tabs__line--inner" v-if="state.activeIndex === index && state.useInnerLine"></view>
+                <view class="wui-tabs__line wui-tabs__line--inner" v-if="state.activeIndex === index && state.useInnerLine"></view>
               </view>
               <!--下划线-->
               <view class="wui-tabs__line" :style="state.lineStyle"></view>
