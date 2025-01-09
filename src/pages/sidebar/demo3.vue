@@ -29,7 +29,7 @@
 import { onMounted, ref } from 'vue'
 import { getRect, isArray } from '@/uni_modules/elegant-wui-uni/components/common/util'
 
-const active = ref<number>(1)
+const active = ref<number>(0)
 const scrollTop = ref<number>(0)
 const itemScrollTop = ref<number[]>([])
 
