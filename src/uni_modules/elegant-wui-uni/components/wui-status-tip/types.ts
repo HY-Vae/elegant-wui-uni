@@ -57,9 +57,9 @@ export const statusTipProps = {
   /**
    * 图片路径前缀，指向图片所在目录，用于拼接图片 URL。推荐将图片放到自己的服务器上，并设置此属性。
    * 类型: string
-   * 默认值: https://registry.npmmirror.com/elegant-wui-uni-assets/*\/files/
+   * 默认值: https://isdm-public.oss-cn-hangzhou.aliyuncs.com/image/
    */
-  urlPrefix: makeStringProp('https://registry.npmmirror.com/elegant-wui-uni-assets/*/files/')
+  urlPrefix: makeStringProp('https://isdm-public.oss-cn-hangzhou.aliyuncs.com/image/')
 }
 
 export type StatusTipProps = ExtractPropTypes<typeof statusTipProps>

@@ -38,7 +38,7 @@ const props = defineProps(statusTipProps)
 const imgUrl = computed(() => {
   // 改用网络地址，避免小程序打包的时候统一打包进去导致包过大问题
   let img: string = ''
-  if (['search', 'network', 'content', 'collect', 'comment', 'halo', 'message'].includes(props.image)) {
+  if (['wui-search', 'wui-network', 'wui-content', 'wui-collect', 'wui-comment', 'wui-halo', 'wui-message'].includes(props.image)) {
     img = `${props.urlPrefix}${props.image}.png`
   } else {
     img = props.image
