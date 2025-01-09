@@ -74,13 +74,23 @@
     </demo-block>
 
     <demo-block title="数量大于6时可滚动" transparent>
-      <wui-tabs v-model="tab6" lazy-render @change="handleChange">
+      <wui-tabs v-model="tab6" @change="handleChange">
         <block v-for="item in 7" :key="item">
           <wui-tab :title="`标签${item}`">
             <view class="content">内容{{ tab6 + 1 }}</view>
           </wui-tab>
         </block>
       </wui-tabs>
+    </demo-block>
+
+    <demo-block title="左对齐超出即可滚动" transparent>
+      <wd-tabs v-model="tab9" slidable="always" @change="handleChange">
+        <block v-for="item in 5" :key="item">
+          <wd-tab :title="`超大标签${item}`">
+            <view class="content">内容{{ tab9 + 1 }}</view>
+          </wd-tab>
+        </block>
+      </wd-tabs>
     </demo-block>
 
     <demo-block title="数量大于10时出现导航地图" transparent>
@@ -108,6 +118,7 @@ const tab5 = ref<number>(0)
 const tab6 = ref<number>(0)
 const tab7 = ref<number>(0)
 const tab8 = ref<number>(0)
+const tab9 = ref<number>(0)
 const toast = useToast()
 function handleClick({ index, name }: any) {
   console.log('event', { index, name })

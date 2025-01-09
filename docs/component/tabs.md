@@ -7,17 +7,17 @@
 `v-model` 为绑定值，可以为 number 类型（选中的 tab 的下标）和 string 类型（标签名）。
 
 :::tip 提示
-当`v-model`为`number`类型时，`wui-tab`可以不必设置`name`。同时如果 value 超出了 tab 数量，会用 0 自动兜底。
+当`v-model`为`number`类型时，`wd-tab`可以不必设置`name`。同时如果 value 超出了 tab 数量，会用 0 自动兜底。
 :::
 
 ```html
-<wui-tabs v-model="tab">
+<wd-tabs v-model="tab">
   <block v-for="item in 4" :key="item">
-    <wui-tab :title="`标签${item}`">
+    <wd-tab :title="`标签${item}`">
       <view class="content">内容{{ item}}</view>
-    </wui-tab>
+    </wd-tab>
   </block>
-</wui-tabs>
+</wd-tabs>
 ```
 
 ```typescript
@@ -33,16 +33,16 @@ const tab = ref<number>(0)
 
 ## name 匹配
 
-为`wui-tab`设置`name`作为唯一标识。
+为`wd-tab`设置`name`作为唯一标识。
 
 ```html
-<wui-tabs v-model="tab">
+<wd-tabs v-model="tab">
   <block v-for="item in tabs" :key="item">
-    <wui-tab :title="`${item}`" :name="item">
+    <wd-tab :title="`${item}`" :name="item">
       <view class="content">内容{{ item }}</view>
-    </wui-tab>
+    </wd-tab>
   </block>
-</wui-tabs>
+</wd-tabs>
 ```
 
 ```typescript
@@ -62,27 +62,27 @@ const tab = ref('例子')
 设置 `sticky` 属性，使用粘性布局。可以设置 `offset-top` 属性，当距离窗口顶部多少像素时，固定标签头。在`H5`端使用自定义导航栏时需要参考[sticky 的吸顶距离](/component/sticky.html#吸顶距离)进行配置。
 
 ```html
-<wui-tabs v-model="tab" sticky>
+<wd-tabs v-model="tab" sticky>
   <block v-for="item in 4" :key="item">
-    <wui-tab :title="`标签${item}`">
+    <wd-tab :title="`标签${item}`">
       <view class="content">内容{{ item}}</view>
-    </wui-tab>
+    </wd-tab>
   </block>
-</wui-tabs>
+</wd-tabs>
 ```
 
 ## 禁用 Tab
 
-在 `wui-tab` 上设置 `disabled` 属性，禁用某个页签。
+在 `wd-tab` 上设置 `disabled` 属性，禁用某个页签。
 
 ```html
-<wui-tabs v-model="tab">
+<wd-tabs v-model="tab">
   <block v-for="item in 4" :key="item">
-    <wui-tab :title="`标签${item}`" :disabled="item === 1">
+    <wd-tab :title="`标签${item}`" :disabled="item === 1">
       <view class="content">内容{{ item }}</view>
-    </wui-tab>
+    </wd-tab>
   </block>
-</wui-tabs>
+</wd-tabs>
 ```
 
 ## 点击事件
@@ -90,13 +90,13 @@ const tab = ref('例子')
 监听页签的点击事件.
 
 ```html
-<wui-tabs v-model="tab" @click="handleClick">
+<wd-tabs v-model="tab" @click="handleClick">
   <block v-for="item in 4" :key="item">
-    <wui-tab :title="`标签${item}`">
+    <wd-tab :title="`标签${item}`">
       <view class="content">内容{{ item }}</view>
-    </wui-tab>
+    </wd-tab>
   </block>
-</wui-tabs>
+</wd-tabs>
 ```
 
 ## 手势滑动
@@ -104,13 +104,13 @@ const tab = ref('例子')
 设置 `swipeable` 属性，支持手势滑动。
 
 ```html
-<wui-tabs v-model="tab" swipeable>
+<wd-tabs v-model="tab" swipeable>
   <block v-for="item in 4" :key="item">
-    <wui-tab :title="`标签${item}`">
+    <wd-tab :title="`标签${item}`">
       <view class="content">内容{{ item }}</view>
-    </wui-tab>
+    </wd-tab>
   </block>
-</wui-tabs>
+</wd-tabs>
 ```
 
 ## 切换动画
@@ -118,25 +118,40 @@ const tab = ref('例子')
 设置 `animated` 属性，开启切换标签内容时的过渡动画。
 
 ```html
-<wui-tabs v-model="tab" animated>
+<wd-tabs v-model="tab" animated>
   <block v-for="item in 4" :key="item">
-    <wui-tab :title="`标签${item}`">
+    <wd-tab :title="`标签${item}`">
       <view class="content">内容{{ item }}</view>
-    </wui-tab>
+    </wd-tab>
   </block>
-</wui-tabs>
+</wd-tabs>
 ```
+
+## 左对齐超出即可滚动 <el-tag text style="vertical-align: middle;margin-left:8px;" effect="plain">1.3.15</el-tag>
+
+`slidable`设置为`always`时，所有的标签会向左侧收缩对齐，超出即可滑动。
+
+```html
+<wd-tabs v-model="tab" slidable="always">
+  <block v-for="item in 5" :key="item">
+    <wd-tab :title="`超大标签${item}`">
+      <view class="content">内容{{ item }}</view>
+    </wd-tab>
+  </block>
+</wd-tabs>
+```
+
 
 ---
 
-标签页在标签数大于等于 6 个时，可以滑动；当标签数大于等于 10 个时，将会显示导航地图，便于快速定位到某个标签。可以通过设置 `slidable-num` 修改可滑动的数量阈值；设置 `map-num` 修改显示导航地图的阈值。
+标签页在标签数大于等于 6 个时，可以滑动；当标签数大于等于 10 个时，将会显示导航地图，便于快速定位到某个标签。可以通过设置 `slidable-num` 修改可滑动的数量阈值；设置 `map-num` 修改显示导航地图的阈值。`slidable`设置为`always`时，所有的标签会向左侧收缩对齐，超出即可滑动。
 
 ## Tabs Attributes
 
 | 参数          | 说明                             | 类型            | 可选值 | 默认值 | 最低版本 |
 | ------------- | -------------------------------- | --------------- | ------ | ------ | -------- |
 | v-model       | 绑定值                           | string / number | -      | -      | -        |
-| slidable-num  | 可滑动的标签数阈值               | number          | -      | 6      | -        |
+| slidable-num  | 可滑动的标签数阈值，`slidable`设置为`auto`时生效 | number          | -      | 6      | -        |
 | map-num       | 显示导航地图的标签数阈值         | number          | -      | 10     | -        |
 | sticky        | 粘性布局                         | boolean         | -      | false  | -        |
 | offset-top    | 粘性布局时距离窗口顶部距离       | number          | -      | 0      | -        |
@@ -147,6 +162,7 @@ const tab = ref('例子')
 | inactiveColor | 非活动标签文字颜色               | string          | -      | -      | -        |
 | animated      | 是否开启切换标签内容时的转场动画 | boolean         | -      | false  | -        |
 | duration      | 切换动画过渡时间，单位毫秒       | number          | -      | 300    | -        |
+| slidable      | 是否开启滚动导航     | TabsSlidable   | `always`  | `auto`   | $LOWEST_VERSION$   |
 
 ## Tab Attributes
 
