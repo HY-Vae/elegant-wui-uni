@@ -104,8 +104,8 @@
     </demo-block>
 
     <demo-block title="数量大于10时出现导航地图" transparent>
-      <wui-tabs v-model="tab7" @change="handleChange">
-        <block v-for="item in 11" :key="item">
+      <wui-tabs v-model="tab7" @change="handleChange" mapTitle="全部">
+        <block v-for="item in 20" :key="item">
           <wui-tab :title="`标签${item}`">
             <view class="large">内容{{ tab7 + 1 }}</view>
           </wui-tab>
