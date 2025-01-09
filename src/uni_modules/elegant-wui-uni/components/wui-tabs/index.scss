@@ -89,15 +89,15 @@
 
   @include e(nav-item) {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex: 1;
     min-width: 0;
-    text-align: center;
     height: $-tabs-nav-height;
-    line-height: $-tabs-nav-height;
     font-size: $-tabs-nav-fs;
     color: $-tabs-nav-color;
     transition: color 0.3s;
-    @include lineEllipsis();
 
     @include when(active) {
       font-weight: 600;
@@ -106,6 +106,17 @@
     @include when(disabled) {
       color: $-tabs-nav-disabled-color;
     }
+  }
+
+  @include e(nav-item-text) {
+    @include lineEllipsis();
+  }
+  @include edeep(nav-item-badge) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    min-width: 0;
   }
 
   @include e(line) {

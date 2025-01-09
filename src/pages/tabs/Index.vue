@@ -22,7 +22,13 @@
         </block>
       </wui-tabs>
     </demo-block>
-
+    <demo-block title="使用徽标" transparent>
+      <wui-tabs v-model="tabWithBadge" @change="handleChange">
+        <wui-tab v-for="(item, index) in tabsWithBadge" :key="index" :title="`${item.title}`" :badge-props="item.badgeProps">
+          <view class="content">{{ item.title }}徽标</view>
+        </wui-tab>
+      </wui-tabs>
+    </demo-block>
     <demo-block title="自动调整底部条宽度" transparent>
       <wui-tabs v-model="autoLineWidthTab" @change="handleChange" auto-line-width>
         <block v-for="item in autoLineWidthTabs" :key="item">
@@ -119,6 +125,33 @@ import { useToast } from '@/uni_modules/elegant-wui-uni'
 import { ref } from 'vue'
 const tabs = ref(['这', '是', '一', '个', '例子'])
 const tab = ref('一')
+
+const tabWithBadge = ref(0)
+const tabsWithBadge = ref([
+  {
+    title: '普通数值',
+    badgeProps: {
+      modelValue: 10,
+      right: '-10px'
+    }
+  },
+  {
+    title: '最大值',
+    badgeProps: {
+      modelValue: 100,
+      max: 99,
+      right: '-10px'
+    }
+  },
+  {
+    title: '点状',
+    badgeProps: {
+      isDot: true,
+      right: '-8px',
+      showZero: true
+    }
+  }
+])
 
 const autoLineWidthTabs = ref(['WUI', 'Design', 'Uni'])
 const autoLineWidthTab = ref('Design')

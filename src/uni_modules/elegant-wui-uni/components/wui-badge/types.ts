@@ -4,11 +4,11 @@
  * @LastEditTime: 2024-03-19 16:33:12
  * @LastEditors: Mr zhang
  * @Description:
- * @FilePath: \elegant-wui-uni\src\uni_modules\elegant-wui-uni\components\wui-badge\types.ts
+ * @FilePath: /elegant-wui-uni/src/uni_modules/elegant-wui-uni/components/wui-badge/types.ts
  * 记得注释
  */
 import type { ExtractPropTypes, PropType } from 'vue'
-import { baseProps, makeBooleanProp, makeStringProp } from '../common/props'
+import { baseProps, makeBooleanProp, makeStringProp, numericProp } from '../common/props'
 
 export type BadgeType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
 
@@ -17,10 +17,7 @@ export const badgeProps = {
   /**
    * 显示值
    */
-  modelValue: {
-    type: [Number, String, null] as PropType<number | string | null>,
-    default: null
-  },
+  modelValue: numericProp,
   /** 当数值为 0 时，是否展示徽标 */
   showZero: makeBooleanProp(false),
   bgColor: String,
@@ -43,11 +40,11 @@ export const badgeProps = {
   /**
    * 为正时，角标向下偏移对应的像素
    */
-  top: Number,
+  top: numericProp,
   /**
    * 为正时，角标向左偏移对应的像素
    */
-  right: Number
+  right: numericProp
 }
 
 export type BadgeProps = ExtractPropTypes<typeof badgeProps>
