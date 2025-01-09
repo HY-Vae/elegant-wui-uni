@@ -90,14 +90,14 @@
                 <wui-badge custom-class="wui-tabs__nav-item-badge" v-if="item.badgeProps" v-bind="item.badgeProps">
                   <text class="wui-tabs__nav-item-text">{{ item.title }}</text>
                 </wui-badge>
-                <text v-else class="wd-tabs__nav-item-text">{{ item.title }}</text>
+                <text v-else class="wui-tabs__nav-item-text">{{ item.title }}</text>
                 <view class="wui-tabs__line wui-tabs__line--inner" v-if="state.activeIndex === index && state.useInnerLine"></view>
               </view>
               <view class="wui-tabs__line" :style="state.lineStyle"></view>
             </view>
           </scroll-view>
         </view>
-        <view class="wd-tabs__map" v-if="mapNum < children.length && mapNum !== 0">
+        <view class="wui-tabs__map" v-if="mapNum < children.length && mapNum !== 0">
           <view class="wui-tabs__map-btn" @click="toggleMap">
             <view :class="`wui-tabs__map-arrow ${state.animating ? 'is-open' : ''}`">
               <wui-icon name="arrow-down" />

@@ -91,6 +91,7 @@ declare module 'vue' {
     WuiIndexAnchor: typeof import('./components/wui-index-anchor/wui-index-anchor.vue')['default']
     WuiText: typeof import('./components/wui-text/wui-text.vue')['default']
     WuiCountTo: typeof import('./components/wui-count-to/wui-count-to.vue')['default']
+    WuiFloatingPanel: typeof import('./components/wui-floating-panel/wui-floating-panel.vue')['default']
   }
 }
 

@@ -4,7 +4,7 @@
     <page-wraper>
       <wui-tabs v-model="tab">
         <wui-tab :title="`基础用法`">
-          <wui-floating-panel safeAreaInsetBottom>
+          <wui-floating-panel safeAreaInsetBottom :contentDraggable="false">
             <wui-cell-group border>
               <wui-cell v-for="item in data" :key="item" :title="item" />
             </wui-cell-group>
