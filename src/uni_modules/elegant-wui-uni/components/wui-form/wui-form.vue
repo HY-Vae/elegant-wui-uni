@@ -95,7 +95,8 @@ async function validate(prop?: string): Promise<{ valid: boolean; errors: ErrorM
                   }
                 })
                 .catch((error: string | Error) => {
-                  const message = typeof error === 'string' ? error : error.message
+                  console.log('error', error)
+                  const message = typeof error === 'string' ? error : error?.message
                   errors.push({
                     prop,
                     message: message || rule.message
