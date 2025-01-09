@@ -19,7 +19,7 @@
                     :class="`wui-tabs__nav-item  ${state.activeIndex === index ? 'is-active' : ''} ${item.disabled ? 'is-disabled' : ''}`"
                     :style="state.activeIndex === index ? (color ? 'color:' + color : '') : inactiveColor ? 'color:' + inactiveColor : ''"
                   >
-                    {{ item.title }}
+                    <text class="wui-tabs__nav-item-text">{{ item.title }}</text>
                     <view class="wui-tabs__line wui-tabs__line--inner" v-if="state.activeIndex === index && state.useInnerLine"></view>
                   </view>
                   <!--下划线-->
@@ -91,7 +91,7 @@
                 :class="`wui-tabs__nav-item ${state.activeIndex === index ? 'is-active' : ''} ${item.disabled ? 'is-disabled' : ''}`"
                 :style="state.activeIndex === index ? (color ? 'color:' + color : '') : inactiveColor ? 'color:' + inactiveColor : ''"
               >
-                {{ item.title }}
+                <text class="wui-tabs__nav-item-text">{{ item.title }}</text>
                 <view class="wui-tabs__line wui-tabs__line--inner" v-if="state.activeIndex === index && state.useInnerLine"></view>
               </view>
               <!--下划线-->
@@ -157,6 +157,7 @@ import { useChildren } from '../composables/useChildren'
 import { useTranslate } from '../composables/useTranslate'
 
 const $item = '.wui-tabs__nav-item'
+const $itemText = '.wui-tabs__nav-item-text'
 const $container = '.wui-tabs__nav-container'
 const props = defineProps(tabsProps)
 const emit = defineEmits(['change', 'disabled', 'click', 'update:modelValue'])
@@ -316,18 +317,23 @@ function toggleMap() {
 }
 
 /**
- * * 更新 underline的偏移量
- *  * @param animation 是否开启动画
+ * 更新 underline的偏移量
+ * @param animation 是否开启动画
  */
-function updateLineStyle(animation: boolean = true) {
+async function updateLineStyle(animation: boolean = true) {
   if (!state.inited) return
-  const { lineWidth, lineHeight } = props
-
-  getRect($item, true, proxy).then((rects) => {
+  const { autoLineWidth, lineWidth, lineHeight } = props
+  try {
+    const rects = await getRect($item, true, proxy)
     const lineStyle: CSSProperties = {}
-
     if (isDef(lineWidth)) {
       lineStyle.width = addUnit(lineWidth)
+    } else {
+      if (autoLineWidth) {
+        const textRects = await getRect($itemText, true, proxy)
+        const textWidth = Number(textRects[state.activeIndex].width)
+        lineStyle.width = addUnit(textWidth)
+      }
     }
     if (isDef(lineHeight)) {
       lineStyle.height = addUnit(lineHeight)
@@ -343,7 +349,9 @@ function updateLineStyle(animation: boolean = true) {
       state.useInnerLine = false
       state.lineStyle = objToStyle(lineStyle)
     }
-  })
+  } catch (error) {
+    console.error('[wui design] error(wui-tabs): update line style failed', error)
+  }
 }
 /**
  * @description 通过控制tab的active来展示选定的tab
