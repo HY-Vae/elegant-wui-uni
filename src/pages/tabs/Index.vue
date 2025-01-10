@@ -127,8 +127,7 @@
         <wui-button @click="handleOpenClick">打开弹窗</wui-button>
       </view>
     </demo-block>
-
-    <wui-popup v-model="showPopup" position="bottom" @after-enter="handlePopupShow" closable custom-style="height: 300px;padding: 0 24rpx;">
+    <wui-popup v-model="showPopup" position="bottom" safe-area-inset-bottom @after-enter="handlePopupShow" closable custom-style="padding: 0 24rpx;">
       <view class="title">在弹出框中使用</view>
       <wui-tabs v-model="tab10" ref="tabsRef">
         <wui-tab v-for="item in tabs" :key="item" :title="`${item}`" :name="item">
