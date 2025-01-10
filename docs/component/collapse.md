@@ -16,12 +16,22 @@ const value = ref<string[]>(['item1'])
   <wui-collapse-item title="标签2" name="item2">这是一条简单的示例文字。</wui-collapse-item>
   <wui-collapse-item name="item3">
     <template #title="{ expanded, disabled, isFirst }">
-      <text style="color: red">通过 slot 自定义标题</text>
-      <text>{{ expanded ? '我展开了' : '我已收起' }}</text>
+      <view class="header">
+        <text style="color: red">通过 slot 自定义标题</text>
+        <text>{{ expanded ? '我展开了' : '我已收起' }}</text>
+      </view>
     </template>
     这是一条简单的示例文字。
   </wui-collapse-item>
 </wui-collapse>
+```
+
+```css
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 ```
 
 ## 手风琴
@@ -270,8 +280,8 @@ collapseRef.value?.toggleAll({
 
 ## CollapseItem 外部样式类
 
-| 类名         | 说明                    | 最低版本 |
-| ------------ | ----------------------- | -------- |
+| 类名              | 说明                           | 最低版本         |
+| ----------------- | ------------------------------ | ---------------- |
 | custom-class      | collapseItem 根节点样式        | -                |
 | custom-body-style | 自定义折叠面板内容容器的样式   | $LOWEST_VERSION$ |
 | custom-body-class | 自定义折叠面板内容容器的样式类 | $LOWEST_VERSION$ |

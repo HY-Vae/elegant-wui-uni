@@ -29,16 +29,20 @@
         <wui-collapse v-model="value7">
           <wui-collapse-item name="item1">
             <template #title="{ expanded }">
-              <text style="color: red">通过 slot 自定义标题</text>
-              <text>{{ expanded ? '我展开了' : '我已收起' }}</text>
+              <view class="header">
+                <text style="color: red">通过 slot 自定义标题</text>
+                <text>{{ expanded ? '我展开了' : '我已收起' }}</text>
+              </view>
             </template>
             {{ desc7 }}
           </wui-collapse-item>
           <wui-collapse-item name="item2" disabled>
             <template #title="{ expanded, disabled }">
-              <text v-if="disabled">被禁用</text>
-              <text style="color: red" v-else>通过 slot 自定义 title</text>
-              <text>{{ expanded ? '我展开了' : '我已收起' }}</text>
+              <view class="header">
+                <text v-if="disabled">被禁用</text>
+                <text style="color: red" v-else>通过 slot 自定义 title</text>
+                <text>{{ expanded ? '我展开了' : '我已收起' }}</text>
+              </view>
             </template>
             {{ desc7 }}
           </wui-collapse-item>
@@ -185,17 +189,23 @@ function beforeExpend(name: string) {
       'Q1:七天无理由退换货制度，所有商品在不影响二次销售的情况下7天内（以快递单签收为准）均接受客户退换货。七天无理由退换货制度，所有商品在不影响二次销售的情况下7天内（以快递单签收为准）均接受客户退换货。七天无理由退换货制度，所有商品在不影响二次销售的情况下7天内（以快递单签收为准）均接受客户退换货。七天无理由退换货制度，所有商品在不影响二次销售的情况下7天内（以快递单签收为准）均接受客户退换货。七天无理由退换货制度，所有商品在不影响二次销售的情况下7天内（以快递单签收为准）均接受客户退换货。七天无理由退换货制度，所有商品在不影响二次销售的情况下7天内（以快递单签收为准）均接受客户退换货。'
   }
 
-  return new Promise((reslove, reject) => {
+  return new Promise((resolve, reject) => {
     toast.loading('加载中')
     setTimeout(() => {
       toast.close()
-      reslove(true)
+      resolve(true)
     }, 500)
   })
 }
 </script>
 <style lang="scss" scoped>
 .collapse {
+  .header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+
   :deep(.more-slot) {
     color: red;
   }
