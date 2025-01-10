@@ -22,7 +22,6 @@
       :custom-class="`wui-fab__actions wui-fab__actions--${fabDirection}`"
       :show="isActive"
       :duration="300"
-      name=""
     >
       <slot></slot>
     </wui-transition>
