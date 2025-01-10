@@ -1,94 +1,107 @@
 <template>
-  <page-wraper>
-    <wui-toast></wui-toast>
+  <view class="collapse">
+    <page-wraper>
+      <demo-block title="toggleAll">
+        <wui-button custom-class="custom-button" type="info" @click="collapse?.toggleAll()">全部切换</wui-button>
+        <wui-button custom-class="custom-button" type="success" @click="collapse?.toggleAll(true)">全部展开</wui-button>
+        <wui-button custom-class="custom-button" type="primary" @click="collapse?.toggleAll(false)">全部收起</wui-button>
+        <wui-button custom-class="custom-button" type="warning" @click="collapse?.toggleAll({ skipDisabled: true })">全部切换跳过禁用</wui-button>
+        <wui-button custom-class="custom-button" type="error" @click="collapse?.toggleAll({ expanded: true, skipDisabled: true })">
+          全部选中跳过禁用
+        </wui-button>
+      </demo-block>
+      <demo-block title="基础用法" transparent>
+        <wui-collapse ref="collapse" v-model="value1" @change="handleChange1">
+          <wui-collapse-item
+            :disabled="item.disabled"
+            v-for="(item, index) in itemList"
+            :before-expend="index === 2 ? beforeExpend : undefined"
+            :key="index"
+            :title="item.title"
+            :name="item.name"
+          >
+            {{ item.body }}
+          </wui-collapse-item>
+        </wui-collapse>
+      </demo-block>
 
-    <demo-block title="toggleAll" transparent>
-      <wui-button @click="collapse?.toggleAll()">toggleAll</wui-button>
-    </demo-block>
-    <demo-block title="基础用法" transparent>
-      <wui-collapse ref="collapse" v-model="value1" @change="handleChange1">
-        <wui-collapse-item
-          v-for="(item, index) in itemList"
-          :before-expend="index === 2 ? beforeExpend : undefined"
-          :key="index"
-          :title="item.title"
-          :name="item.name"
-        >
-          {{ item.body }}
-        </wui-collapse-item>
-      </wui-collapse>
-    </demo-block>
+      <demo-block title="自定义title" transparent>
+        <wui-collapse v-model="value7">
+          <wui-collapse-item name="item1">
+            <template #title="{ expanded }">
+              <text style="color: red">通过 slot 自定义标题</text>
+              <text>{{ expanded ? '我展开了' : '我已收起' }}</text>
+            </template>
+            {{ desc7 }}
+          </wui-collapse-item>
+          <wui-collapse-item name="item2" disabled>
+            <template #title="{ expanded, disabled }">
+              <text v-if="disabled">被禁用</text>
+              <text style="color: red" v-else>通过 slot 自定义 title</text>
+              <text>{{ expanded ? '我展开了' : '我已收起' }}</text>
+            </template>
+            {{ desc7 }}
+          </wui-collapse-item>
+        </wui-collapse>
+      </demo-block>
 
-    <demo-block title="自定义title" transparent>
-      <wui-collapse v-model="value7">
-        <wui-collapse-item name="item1">
-          <template #title="{ expanded }">
-            <text style="color: red">通过 slot 自定义标题</text>
-            <text>{{ expanded ? '我展开了' : '我已收起' }}</text>
-          </template>
-          {{ desc7 }}
-        </wui-collapse-item>
-        <wui-collapse-item name="item2" disabled>
-          <template #title="{ expanded, disabled }">
-            <text v-if="disabled">被禁用</text>
-            <text style="color: red" v-else>通过 slot 自定义 title</text>
-            <text>{{ expanded ? '我展开了' : '我已收起' }}</text>
-          </template>
-          {{ desc7 }}
-        </wui-collapse-item>
-      </wui-collapse>
-    </demo-block>
+      <demo-block title="手风琴" transparent>
+        <wui-collapse v-model="value2" :accordion="accordion" @change="handleChange2">
+          <wui-collapse-item title="标签1" name="item1">这是一条简单的示例文字。</wui-collapse-item>
+          <wui-collapse-item title="标签2" name="item2">
+            这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
+          </wui-collapse-item>
+          <wui-collapse-item title="标签3" name="item3">这是一条简单的示例文字。</wui-collapse-item>
+        </wui-collapse>
+      </demo-block>
+      <demo-block title="禁用" transparent>
+        <wui-collapse v-model="value3" @change="handleChange3">
+          <wui-collapse-item title="标签1" name="item1">
+            这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
+          </wui-collapse-item>
+          <wui-collapse-item title="标签2" name="item2" disabled>这是一条简单的示例文字。</wui-collapse-item>
+          <wui-collapse-item title="标签3" name="item3">这是一条简单的示例文字。</wui-collapse-item>
+        </wui-collapse>
+      </demo-block>
 
-    <demo-block title="手风琴" transparent>
-      <wui-collapse v-model="value2" :accordion="accordion" @change="handleChange2">
-        <wui-collapse-item title="标签1" name="item1">这是一条简单的示例文字。</wui-collapse-item>
-        <wui-collapse-item title="标签2" name="item2">
+      <demo-block title="嵌套" transparent>
+        <wui-collapse v-model="collapseRoot" @change="handleChange1">
+          <wui-collapse-item custom-body-style="padding:0 0 0 14px" v-for="item in 5" :key="item" :title="`标签${item}`" :name="`${item}`">
+            <wui-collapse v-model="collapseList[item - 1]">
+              <wui-collapse-item
+                :custom-class="index === 0 ? 'no-border' : ''"
+                v-for="(item, index) in itemList"
+                :key="index"
+                :title="item.title"
+                :name="item.name"
+              >
+                {{ item.body }}
+              </wui-collapse-item>
+            </wui-collapse>
+          </wui-collapse-item>
+        </wui-collapse>
+      </demo-block>
+
+      <demo-block title="查看更多" transparent>
+        <wui-collapse viewmore v-model="value4" @change="handleChange4">
           这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
-        </wui-collapse-item>
-        <wui-collapse-item title="标签3" name="item3">这是一条简单的示例文字。</wui-collapse-item>
-      </wui-collapse>
-    </demo-block>
-    <demo-block title="禁用" transparent>
-      <wui-collapse v-model="value3" @change="handleChange3">
-        <wui-collapse-item title="标签1" name="item1">
-          这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
-        </wui-collapse-item>
-        <wui-collapse-item title="标签2" name="item2" disabled>这是一条简单的示例文字。</wui-collapse-item>
-        <wui-collapse-item title="标签3" name="item3">这是一条简单的示例文字。</wui-collapse-item>
-      </wui-collapse>
-    </demo-block>
-
-    <demo-block title="嵌套" transparent>
-      <wui-collapse v-model="collapseRoot" @change="handleChange1">
-        <wui-collapse-item v-for="item in 5" :key="item" :title="`标签${item}`" :name="`${item}`">
-          <wui-collapse v-model="collapseList[item - 1]">
-            <wui-collapse-item v-for="(item, index) in itemList" :key="index" :title="item.title" :name="item.name">
-              {{ item.body }}
-            </wui-collapse-item>
-          </wui-collapse>
-        </wui-collapse-item>
-      </wui-collapse>
-    </demo-block>
-
-    <demo-block title="查看更多" transparent>
-      <wui-collapse viewmore v-model="value4" @change="handleChange4">
-        这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
-      </wui-collapse>
-    </demo-block>
-    <demo-block title="查看更多-行数显示设置" transparent>
-      <wui-collapse viewmore v-model="value5" @change="handleChange5" :line-num="3">
-        行数显示设置：这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
-      </wui-collapse>
-    </demo-block>
-    <demo-block title="查看更多-具名插槽" transparent>
-      <wui-collapse viewmore v-model="value6" @change="handleChange6" use-more-slot custom-more-slot-class="more-slot">
-        具名插槽：这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
-        <template #more>
-          <view>显示全部</view>
-        </template>
-      </wui-collapse>
-    </demo-block>
-  </page-wraper>
+        </wui-collapse>
+      </demo-block>
+      <demo-block title="查看更多-行数显示设置" transparent>
+        <wui-collapse viewmore v-model="value5" @change="handleChange5" :line-num="3">
+          行数显示设置：这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
+        </wui-collapse>
+      </demo-block>
+      <demo-block title="查看更多-具名插槽" transparent>
+        <wui-collapse viewmore v-model="value6" @change="handleChange6" use-more-slot custom-more-slot-class="more-slot">
+          具名插槽：这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
+          <template #more>
+            <view>显示全部</view>
+          </template>
+        </wui-collapse>
+      </demo-block>
+    </page-wraper>
+  </view>
 </template>
 <script lang="ts" setup>
 import { useToast } from '@/uni_modules/elegant-wui-uni'
@@ -105,7 +118,8 @@ const itemList = ref<Record<string, any>[]>([
   {
     title: '标签2',
     name: 'item2',
-    body: '一般情况下，买家只能向商户申请退款，商户确认可以退款后，可以通过接口或者商户平台向微信支付发起退款申请。'
+    body: '一般情况下，买家只能向商户申请退款，商户确认可以退款后，可以通过接口或者商户平台向微信支付发起退款申请。',
+    disabled: true
   },
   {
     title: '标签3',
@@ -157,34 +171,10 @@ function handleChange5({ value }: any) {
 function handleChange6({ value }: any) {
   console.log(value)
 }
-function handleChange7({ value }: any) {
-  console.log(value)
-}
-
-/**
-
-function handleChange1({ value }: any) {
-  console.log(value)
-}
-function handleChange2({ value }: any) {
-  console.log(value)
-}
-function handleChange3({ value }: any) {
-  console.log(value)
-}
-function handleChange4({ value }: any) {
-  console.log(value)
-}
-function handleChange5({ value }: any) {
-  console.log(value)
-}
-function handleChange6({ value }: any) {
-  console.log(value)
-}
 
 /**
  * 折叠面板展开前回调方法
- * @param e
+ * @param name
  */
 function beforeExpend(name: string) {
   const index = itemList.value.findIndex((item) => {
@@ -205,7 +195,21 @@ function beforeExpend(name: string) {
 }
 </script>
 <style lang="scss" scoped>
-:deep(.more-slot) {
-  color: red;
+.collapse {
+  :deep(.more-slot) {
+    color: red;
+  }
+
+  :deep(.custom-button) {
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+  :deep() {
+    .no-border {
+      &::after {
+        display: none;
+      }
+    }
+  }
 }
 </style>

@@ -5,7 +5,6 @@
   @include b(collapse-item) {
     @include halfPixelBorder('top', 0, $-dark-border-color);
 
-
     @include e(title) {
       color: $-dark-color;
     }
@@ -25,11 +24,9 @@
   }
 }
 
-
 @include b(collapse-item) {
   position: relative;
   @include halfPixelBorder('top');
-
 
   @include e(header) {
     position: relative;
@@ -39,6 +36,9 @@
     padding: $-collapse-header-padding;
     overflow: hidden;
     user-select: none;
+    @include when(expanded) {
+      @include halfPixelBorder('bottom');
+    }
   }
 
   @include e(title) {

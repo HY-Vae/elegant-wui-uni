@@ -270,7 +270,7 @@ $-checkbox-button-disabled-border: var(--wui-checkbox-button-disabled-border, rg
 
 /* collapse */
 $-collapse-side-padding: var(--wui-collapse-side-padding, $-size-side-padding) !default; // 左右间距
-$-collapse-body-padding: var(--wui-collapse-body-padding, 14px 25px) !default; // body padding
+$-collapse-body-padding: var(--wot-collapse-body-padding, 14px $-size-side-padding) !default; // body padding
 $-collapse-header-padding: var(--wui-collapse-header-padding, 13px $-size-side-padding) !default; // 头部padding
 $-collapse-title-color: var(--wui-collapse-title-color, rgba(0, 0, 0, 0.85)) !default; // 标题颜色
 $-collapse-title-fs: var(--wui-collapse-title-fs, 16px) !default; // 标题字号
@@ -769,7 +769,6 @@ $-swiper-radius: var(--wui-swiper-radius, 8px);
 $-swiper-item-padding: var(--wui-swiper-item-padding, 0);
 $-swiper-item-text-color: var(--wui-swiper-item-text-color, #ffffff);
 $-swiper-item-text-fs: var(--wui-swiper-item-text-fs, $-fs-title);
-
 
 /* swiper-nav */
 // dot & dots-bar
