@@ -7,7 +7,7 @@
  * @FilePath: /elegant-wui-uni/src/uni_modules/elegant-wui-uni/components/wui-segmented/types.ts
  * 记得注释
  */
-import type { PropType } from 'vue'
+import type { ComponentPublicInstance, ExtractPropTypes, PropType } from 'vue'
 import { baseProps, makeBooleanProp, makeRequiredProp, makeStringProp } from '../common/props'
 
 export type SegmentedType = 'large' | 'middle' | 'small'
@@ -66,3 +66,12 @@ export const segmentedProps = {
    */
   vibrateShort: makeBooleanProp(false)
 }
+export type SegmentedExpose = {
+  /**
+   * 更新滑块偏移量
+   * @param animation 是否开启动画，默认开启
+   */
+  updateActiveStyle: (animation?: boolean) => void
+}
+export type SegmentedProps = ExtractPropTypes<typeof segmentedProps>
+export type SegmentedInstance = ComponentPublicInstance<SegmentedProps, SegmentedExpose>

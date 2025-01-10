@@ -26,7 +26,6 @@
   }
 }
 
-
 @include b(popup) {
   @include edeep(close) {
     position: absolute;
@@ -35,6 +34,15 @@
     color: $-popup-close-color;
     font-size: $-popup-close-size;
     transform: rotate(-45deg);
+
+    width: 27rpx;
+    height: 27rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 5px;
   }
 
   @include mdeep(center) {
@@ -49,13 +57,11 @@
     }
 
     @include when(deep) {
-
       &.wui-zoom-in-enter,
       &.wui-zoom-in-leave-to {
         transform: scale(0.1) translate3d(-50%, -50%, 0) !important;
       }
     }
-
   }
 
   @include mdeep(left) {
