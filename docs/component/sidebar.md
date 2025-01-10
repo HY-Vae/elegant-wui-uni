@@ -464,10 +464,11 @@ function onScroll(e) {
 
 ## Attributes
 
-| 参数               | 说明             | 类型             | 可选值 | 默认值 | 最低版本 |
-| ------------------ | ---------------- | ---------------- | ------ | ------ | -------- |
-| modelValue/v-model | 当前导航项的索引                  | string \| number | -      | 0      | 0.1.49           |
-| before-change      | 切换导航项前钩子，可以在切换标签前执行特定的逻辑，接收 { value, resolve } 参数，通过 resolve 继续执行，resolve 接收 1 个 boolean 参数 | function         | -      | -      | $LOWEST_VERSION$ |
+| 参数               | 说明                                                                                                                                  | 类型             | 可选值 | 默认值 | 最低版本 |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------ | ------ | -------- |
+| modelValue/v-model | 当前导航项的索引                                                                                                                      | string \| number | -      | 0      | 0.1.49   |
+| before-change      | 切换导航项前钩子，可以在切换标签前执行特定的逻辑，接收 { value, resolve } 参数，通过 resolve 继续执行，resolve 接收 1 个 boolean 参数 | function         | -      | -      | 1.4.0    |
+
 ## Events
 
 | 事件名称 | 说明           | 参数                                       | 最低版本 |
@@ -499,6 +500,7 @@ function onScroll(e) {
 | max         | 徽标属性，徽标最大值                                                                     | number                     | -      | 99     | 0.1.49   |
 | disabled    | 是否禁用                                                                                 | boolean                    | -      | false  | 0.1.49   |
 | badge-props | 自定义徽标的属性，传入的对象会被透传给 [Badge 组件的 props](/component/badge#attributes) | BadgeProps                 | -      | -      | 0.1.50   |
+
 ## SidebarItem Slots
 
 | name | 说明       | 参数 | 最低版本 |

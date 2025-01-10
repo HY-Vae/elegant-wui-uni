@@ -160,7 +160,7 @@ Collapse 查看更多的模式下，可以使用插槽定义自己想要的折�
 `collapse`可以嵌套使用，同时由于`collapse-item`的内容容器存在默认的`padding`，所以嵌套的`collapse`需要设置`custom-body-style`或者`custom-body-class`来覆盖默认样式。
 **_以下为示例，也可以自行调整样式。_**
 :::tip 注意
-`custom-body-style`和`custom-body-class`在`$LOWEST_VERSION$`及以上版本支持。
+`custom-body-style`和`custom-body-class`在`1.4.0`及以上版本支持。
 :::
 
 ```html
@@ -280,11 +280,11 @@ collapseRef.value?.toggleAll({
 
 ## CollapseItem 外部样式类
 
-| 类名              | 说明                           | 最低版本         |
-| ----------------- | ------------------------------ | ---------------- |
-| custom-class      | collapseItem 根节点样式        | -                |
-| custom-body-style | 自定义折叠面板内容容器的样式   | $LOWEST_VERSION$ |
-| custom-body-class | 自定义折叠面板内容容器的样式类 | $LOWEST_VERSION$ |
+| 类名              | 说明                           | 最低版本 |
+| ----------------- | ------------------------------ | -------- |
+| custom-class      | collapseItem 根节点样式        | -        |
+| custom-body-style | 自定义折叠面板内容容器的样式   | 1.4.0    |
+| custom-body-class | 自定义折叠面板内容容器的样式类 | 1.4.0    |
 
 ## Collapse 外部样式类
 
