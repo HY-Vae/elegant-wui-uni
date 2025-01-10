@@ -113,7 +113,7 @@ const tabsWithBadge = ref([
 ```
 
 ```typescript
-const tabs = ref(['Wot', 'Design', 'Uni'])
+const tabs = ref(['Wui', 'Design', 'Uni'])
 const tab = ref('Design')
 ```
 
