@@ -1,6 +1,6 @@
 # 更新日志
 
-## [1.4.0](https://github.com/Moonofweisheng/wot-design-uni/compare/v1.3.14...v1.4.0) (2024-11-24)
+## [1.4.0](https://github.com/zhangyao1990/elegant-wui-uni/compare/v1.3.14...v1.4.0) (2024-11-24)
 
 ### ✨ Features | 新功能
 
@@ -20,7 +20,7 @@
 - 🐛 修复 DateTimePicker 设置为 time 类型时绑定值无法设置为空数组的问题, closes
 - 🐛 修复 FloadingPanel 设置 height 不生效的问题, closes
 - 🐛 修复 Slider 滑块处于极值时会遮挡 max 和 min 的问题, closes
-- 🐛 修复 wd-select-picker 组件单选搜索高亮 class 错误
+- 🐛 修复 wui-select-picker 组件单选搜索高亮 class 错误
 - 🐛 修复 Collapse 折叠面板组件内容溢出问题
 
 ### ✏️ Documentation | 文档

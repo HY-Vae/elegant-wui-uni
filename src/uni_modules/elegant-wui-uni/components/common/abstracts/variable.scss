@@ -483,15 +483,8 @@ $-progress-padding: var(--wui-progress-padding, 9px 0 8px) !default; // 进度�
 $-progress-bg: var(--wui-progress-bg, rgba(229, 229, 229, 1)) !default; // 进度条底色
 $-progress-danger-color: var(--wui-progress-danger-color, $-color-danger) !default; // 进度条danger颜色
 $-progress-success-color: var(--wui-progress-success-color, $-color-success) !default; // 进度条success进度条颜色
-$-progress-color: var(--wui-progress-color, resultColor(315deg, $-color-theme, 'dark' 'light', #517cf0 #769ef5, 0% 100%)) !default; // 进度条渐变色
-$-progress-linear-success-color: var(
-  --wui-progress-linear-success-color,
-  resultColor(315deg, $-color-theme, 'dark' 'light', #20b080 #2bd69d, 0% 100%)
-) !default; // success进度条渐变色
-$-progress-linear-danger-color: var(
-  --wui-progress-linear-danger-color,
-  resultColor(315deg, $-color-theme, 'dark' 'light', #e04350 #ff5964, 0% 100%)
-) !default; // danger进度条渐变色
+$-progress-warning-color: var(--wui-progress-warning-color, $-color-warning) !default; // 进度条warning进度条颜色
+$-progress-color: var(--wui-progress-color, $-color-theme) !default; // 进度条颜色
 $-progress-height: var(--wui-progress-height, 3px) !default; // 进度条高度
 $-progress-label-color: var(--wui-progress-label-color, #333) !default; // 文字颜色
 $-progress-label-fs: var(--wui-progress-label-fs, 14px) !default; // 文字字号

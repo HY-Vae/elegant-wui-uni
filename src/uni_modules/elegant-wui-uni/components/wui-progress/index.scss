@@ -1,5 +1,5 @@
-@import "./../common/abstracts/_mixin.scss";
-@import "./../common/abstracts/variable.scss";
+@import './../common/abstracts/_mixin.scss';
+@import './../common/abstracts/variable.scss';
 
 .wui-theme-dark {
   @include b(progress) {
@@ -37,10 +37,13 @@
     font-size: $-progress-icon-fs;
 
     @include when(danger) {
-      background: $-progress-linear-danger-color;
+      background: $-progress-danger-color;
     }
     @include when(success) {
-      background: $-progress-linear-success-color;
+      background: $-progress-success-color;
+    }
+    @include when(warning) {
+      background: $-progress-warning-color;
     }
   }
   @include edeep(label) {
@@ -57,6 +60,9 @@
     }
     @include when(success) {
       color: $-progress-success-color;
+    }
+    @include when(warning) {
+      color: $-progress-warning-color;
     }
   }
 }

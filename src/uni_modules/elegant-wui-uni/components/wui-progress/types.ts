@@ -4,13 +4,17 @@
  * @LastEditTime: 2024-03-18 15:32:11
  * @LastEditors: Mr zhang
  * @Description:
- * @FilePath: \elegant-wui-uni\src\uni_modules\elegant-wui-uni\components\wui-progress\types.ts
+ * @FilePath: /elegant-wui-uni/src/uni_modules/elegant-wui-uni/components/wui-progress/types.ts
  * 记得注释
  */
 import type { PropType } from 'vue'
 import { baseProps, makeBooleanProp, makeNumberProp } from '../common/props'
 
-export type ProgressStatus = 'success' | 'danger' // 状态类型
+export type ProgressStatus = 'success' | 'danger' | 'warning' // 状态类型
+export type ProgressColor = {
+  color: string // 颜色
+  percentage: number // 百分比
+}
 
 export const progressProps = {
   ...baseProps,
@@ -26,8 +30,7 @@ export const progressProps = {
    * 进度条颜色
    */
   color: {
-    type: [String, Array, Object] as PropType<string | string[] | Record<string, any>[]>,
-    default: 'linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%)'
+    type: [String, Array] as PropType<string | string[] | ProgressColor[]>
   },
   /**
    * 进度增加1%所需毫秒数
