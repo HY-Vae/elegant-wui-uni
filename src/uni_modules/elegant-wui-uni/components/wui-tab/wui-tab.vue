@@ -1,6 +1,6 @@
 <template>
   <view :class="`wui-tab ${customClass}`" :style="customStyle">
-    <view class="wui-tab__body" v-if="shouldBeRender" :style="tabBodyStyle">
+    <view :class="['wui-tab__body', { 'wd-tab__body--inactive': !active }]" v-if="shouldBeRender" :style="tabBodyStyle">
       <slot />
     </view>
   </view>

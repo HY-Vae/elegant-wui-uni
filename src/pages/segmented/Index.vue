@@ -51,7 +51,7 @@
           <wui-button @click="handleClick">打开弹窗</wui-button>
         </view>
       </demo-block>
-      <wui-popup v-model="showPopup" position="bottom" @after-enter="handlePopupShow" closable custom-style="height: 200px;padding: 0 24rpx;">
+      <wui-popup v-model="showPopup" position="bottom" @after-enter="handlePopupShow" closable custom-style="height: 300px;padding: 0 24rpx;">
         <view class="title">在弹出框中使用</view>
         <wui-segmented :options="list" v-model:value="current6" @change="handleChange" ref="segmentedRef"></wui-segmented>
       </wui-popup>
