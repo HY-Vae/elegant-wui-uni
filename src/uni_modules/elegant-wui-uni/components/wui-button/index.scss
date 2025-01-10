@@ -1,7 +1,6 @@
 @import './../common/abstracts/_mixin.scss';
 @import './../common/abstracts/variable.scss';
 
-
 .wui-theme-dark {
   @include b(button) {
     @include when(info) {
@@ -35,7 +34,6 @@
         color: $-dark-color-gray;
         background: transparent;
       }
-
     }
   }
 }
@@ -57,7 +55,6 @@
   user-select: none;
   font-weight: normal;
 
-
   &::before {
     position: absolute;
     top: 50%;
@@ -73,7 +70,6 @@
     content: ' ';
   }
 
-
   &::after {
     border: none;
     border-radius: 0;
@@ -81,7 +77,7 @@
 
   @include m(active) {
     &:active::before {
-      opacity: 0.15;
+      opacity: 0.06;
     }
   }
 
@@ -102,7 +98,8 @@
     background-repeat: no-repeat;
   }
 
-  @include when(loading) {}
+  @include when(loading) {
+  }
 
   @include when(primary) {
     background: $-button-primary-bg-color;
@@ -148,26 +145,6 @@
     border-radius: $-button-medium-radius;
     font-size: $-button-medium-fs;
 
-    @include when(primary) {
-      box-shadow: $-button-medium-box-shadow-size $-button-primary-box-shadow-color;
-    }
-
-    @include when(success) {
-      box-shadow: $-button-medium-box-shadow-size $-button-success-box-shadow-color;
-    }
-
-    @include when(warning) {
-      box-shadow: $-button-medium-box-shadow-size $-button-warning-box-shadow-color;
-    }
-
-    @include when(error) {
-      box-shadow: $-button-medium-box-shadow-size $-button-error-box-shadow-color;
-    }
-
-    @include when(plain) {
-      box-shadow: none;
-    }
-
     @include when(round) {
       min-width: 120px;
 
@@ -198,31 +175,11 @@
       border-radius: $-button-large-radius;
     }
 
-    &:not(.is-plain) {
-      @include when(primary) {
-        box-shadow: $-button-large-box-shadow-size $-button-primary-box-shadow-color;
-      }
-
-      @include when(success) {
-        box-shadow: $-button-large-box-shadow-size $-button-success-box-shadow-color;
-      }
-
-      @include when(warning) {
-        box-shadow: $-button-large-box-shadow-size $-button-warning-box-shadow-color;
-      }
-
-      @include when(error) {
-        box-shadow: $-button-large-box-shadow-size $-button-error-box-shadow-color;
-      }
-    }
-
-
     .wui-button__loading {
       width: $-button-large-loading;
       height: $-button-large-loading;
     }
   }
-
 
   @include when(round) {
     border-radius: 999px;
@@ -243,7 +200,6 @@
       &:active::before {
         display: none;
       }
-
     }
 
     @include when(disabled) {
