@@ -129,8 +129,16 @@ function handleClose() {
 | load        | 图片加载完成事件                                                               | -    | -        |
 | error       | 图片加载失败事件，若图片加载失败，则不会展示幕帘组件，即使设置 `value` 为 true | -    | -        |
 
+## Slots
+
+| name  | 说明         | 最低版本         |
+| ----- | ------------ | ---------------- |
+| close | 关闭按钮插槽 | $LOWEST_VERSION$ |
+
 ## 外部样式类
 
-| 类名         | 说明       | 最低版本 |
-| ------------ | ---------- | -------- |
-| custom-class | 根节点样式 | -        |
+| 类名               | 说明           | 最低版本         |
+| ------------------ | -------------- | ---------------- |
+| custom-class       | 根节点样式     | -                |
+| custom-close-class | 关闭按钮样式类 | $LOWEST_VERSION$ |
+| custom-close-style | 关闭按钮样式   | $LOWEST_VERSION$ |
