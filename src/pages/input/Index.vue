@@ -1,7 +1,7 @@
 <template>
   <page-wraper>
     <demo-block title="基本用法">
-      <wui-input type="text" @input="handleInput" v-model="value" placeholder="请输入歪比巴卜" @change="handleChange" @blur="handleBlur" />
+      <wui-input type="text" @input="handleInput" v-model="value" placeholder="请输入" @change="handleChange" @blur="handleBlur" />
     </demo-block>
     <demo-block title="禁用状态">
       <wui-input type="text" @input="handleInput" v-model="value1" disabled />
@@ -10,7 +10,7 @@
       <wui-input type="text" @input="handleInput" v-model="value2" readonly />
     </demo-block>
     <demo-block title="错误状态">
-      <wui-input type="text" @input="handleInput" v-model="value3" placeholder="请输入歪比巴卜" error />
+      <wui-input type="text" @input="handleInput" v-model="value3" placeholder="请输入" error />
     </demo-block>
     <demo-block title="清空按钮">
       <wui-input type="text" @input="handleInput" v-model="value4" clearable @change="handleChange1" />
@@ -46,10 +46,11 @@
     <demo-block title="cell 类型" transparent>
       <wui-cell-group border>
         <wui-input type="text" label="基本用法" v-model="value12" @input="handleInput" placeholder="请输入..." />
-        <wui-input type="text" label="禁用" v-model="value13" @input="handleInput" disabled placeholder="歪比巴卜" />
+        <wui-input type="text" label="禁用" v-model="value13" @input="handleInput" disabled placeholder="请输入" />
         <wui-input type="text" label="清除、密码" v-model="value14" @input="handleInput" placeholder="请输入..." clearable show-password />
-        <wui-input type="text" label="错误状态" v-model="value15" @input="handleInput" placeholder="请输入歪比巴卜" error />
-        <wui-input type="text" label="必填" v-model="value16" @input="handleInput" placeholder="请输入歪比巴卜" required />
+        <wui-input type="text" label="错误状态" v-model="value15" @input="handleInput" placeholder="请输入" error />
+        <wui-input type="text" label="必填" v-model="value16" @input="handleInput" placeholder="请输入" required />
+        <wui-input type="text" label="字数限制" v-model="value22" placeholder="请输入..." :maxlength="20" show-word-limit clearable />
         <wui-input type="text" label="图标" v-model="value17" @input="handleInput" placeholder="请输入..." prefix-icon="dong" suffix-icon="list" />
         <wui-input type="text" label="自定义插槽" center v-model="value18" @input="handleInput" placeholder="请输入..." clearable>
           <template #suffix>
@@ -84,6 +85,7 @@ const value18 = ref<string>('')
 const value19 = ref<string>('')
 const value20 = ref<string>('')
 const value21 = ref<string>('')
+const value22 = ref<string>('')
 
 function handleChange(event: any) {
   console.log(event)
