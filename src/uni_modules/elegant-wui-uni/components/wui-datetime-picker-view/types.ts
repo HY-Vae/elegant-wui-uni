@@ -7,7 +7,7 @@ export type DateTimeType = 'date' | 'year-month' | 'time' | 'datetime' | 'year'
  * @description 根据传入的值和类型，获取当前的选项数组，便于传入 pickerView
  * @param value
  * @param type picker类型
- * @return {Array} pickerValue
+ * @return pickerValue
  */
 export function getPickerValue(value: string | number, type: DateTimeType) {
   const values: number[] = []
@@ -31,7 +31,7 @@ export const datetimePickerViewProps = {
   /**
    * 选中项，当 type 为 time 时，类型为字符串，否则为 时间戳
    */
-  modelValue: makeRequiredProp([String, Number, Date]),
+  modelValue: makeRequiredProp([String, Number]),
   /**
    * 加载中
    */

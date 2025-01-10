@@ -157,6 +157,7 @@ import wuiDatetimePickerView from '../wui-datetime-picker-view/wui-datetime-pick
 import { computed, getCurrentInstance, nextTick, onBeforeMount, onMounted, ref, watch } from 'vue'
 import { deepClone, isArray, isDef, isEqual, isFunction, padZero } from '../common/util'
 import { useCell } from '../composables/useCell'
+import { dayjs } from '../common/dayjs'
 import {
   getPickerValue,
   type DatetimePickerViewInstance,
@@ -391,18 +392,14 @@ function getSelects(picker: 'before' | 'after') {
 function noop() {}
 
 function getDefaultInnerValue(isRegion?: boolean, isEnd?: boolean): string | number {
-  const { modelValue: value, defaultValue } = props
-
+  const { modelValue: value, defaultValue, maxDate, minDate, type } = props
   if (isRegion) {
-    if (isEnd) {
-      return (
-        (isArray(value) ? (value[1] as string) : '') || (defaultValue && isArray(defaultValue) ? (defaultValue[1] as string) : '') || props.maxDate
-      )
-    } else {
-      return (
-        (isArray(value) ? (value[0] as string) : '') || (defaultValue && isArray(defaultValue) ? (defaultValue[0] as string) : '') || props.minDate
-      )
-    }
+    const index = isEnd ? 1 : 0
+    const targetValue = isArray(value) ? (value[index] as string) : ''
+    const targetDefault = isArray(defaultValue) ? (defaultValue[index] as string) : ''
+    const maxValue = type === 'time' ? dayjs(maxDate).format('HH:mm') : maxDate
+    const minValue = type === 'time' ? dayjs(minDate).format('HH:mm') : minDate
+    return targetValue || targetDefault || (isEnd ? maxValue : minValue)
   } else {
     return isDef(value || defaultValue) ? (value as string) || (defaultValue as string) : ''
   }
