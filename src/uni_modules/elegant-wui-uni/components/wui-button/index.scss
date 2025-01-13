@@ -40,10 +40,7 @@
 
 @include b(button) {
   position: relative;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  outline: none;
+  display: inline-block;
   -webkit-appearance: none;
   outline: none;
   background: transparent;
@@ -79,6 +76,12 @@
     &:active::before {
       opacity: 0.06;
     }
+  }
+  @include e(content) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
 
   @include when(disabled) {
@@ -144,10 +147,9 @@
     padding: $-button-medium-padding;
     border-radius: $-button-medium-radius;
     font-size: $-button-medium-fs;
+    min-width: 120px;
 
     @include when(round) {
-      min-width: 120px;
-
       @include when(icon) {
         min-width: 0;
         border-radius: 50%;
@@ -275,7 +277,7 @@
   }
 
   @include when(block) {
-    display: flex;
+    display: block;
   }
 
   @include when(icon) {

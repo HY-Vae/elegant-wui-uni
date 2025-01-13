@@ -38,11 +38,13 @@
     @chooseavatar="handleChooseavatar"
     @agreeprivacyauthorization="handleAgreePrivacyAuthorization"
   >
-    <view v-if="loading" class="wui-button__loading">
-      <view class="wui-button__loading-svg" :style="loadingStyle"></view>
+    <view class="wui-button__content">
+      <view v-if="loading" class="wui-button__loading">
+        <view class="wui-button__loading-svg" :style="loadingStyle"></view>
+      </view>
+      <wui-icon v-else-if="icon" custom-class="wui-button__icon" :name="icon" :classPrefix="classPrefix"></wui-icon>
+      <view class="wui-button__text"><slot /></view>
     </view>
-    <wui-icon v-else-if="icon" custom-class="wui-button__icon" :name="icon" :classPrefix="classPrefix"></wui-icon>
-    <view class="wui-button__text"><slot /></view>
   </button>
 </template>
 
