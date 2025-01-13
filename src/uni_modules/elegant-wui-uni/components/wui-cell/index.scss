@@ -111,7 +111,6 @@
     margin-top: 2px;
     font-size: $-cell-label-fs;
     color: $-cell-label-color;
-    @include lineEllipsis;
   }
 
   @include edeep(icon) {
@@ -123,7 +122,7 @@
     line-height: $-cell-line-height;
   }
 
-  @include e(body){
+  @include e(body) {
     display: flex;
   }
 
@@ -146,7 +145,7 @@
     line-height: $-cell-line-height;
   }
 
-  @include e(error-message){
+  @include e(error-message) {
     color: $-form-item-error-message-color;
     font-size: $-form-item-error-message-font-size;
     line-height: $-form-item-error-message-line-height;

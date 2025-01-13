@@ -22,7 +22,7 @@
     <demo-block title="分组标题" transparent>
       <wui-cell-group title="交易管理" value="内容">
         <wui-cell title="标题文字" value="内容" />
-        <wui-cell title="标题文字" label="描述信息" value="内容"></wui-cell>
+        <wui-cell title="标题文字" label="黄鹤断矶头，故人今在否？旧江山浑是新愁。欲买桂花同载酒，终不似，少年游。" value="内容"></wui-cell>
       </wui-cell-group>
     </demo-block>
 
@@ -89,7 +89,7 @@
             <wui-switch v-model="switchValue" @change="handleSwitchChange" />
           </view>
         </wui-cell>
-        <wui-cell title="标题文字" is-link to="/pages/index/index">
+        <wui-cell title="标题文字" is-link to="/pages/index/Index">
           <view class="custom-text">订购</view>
         </wui-cell>
         <wui-cell>
@@ -150,7 +150,8 @@ function showToast() {
   display: inline-block;
   margin-left: 8px;
   border: 1px solid #faa21e;
-  padding: 0 4px;
+  border-radius: 50rpx;
+  padding: 0 10px;
   font-size: 10px;
   color: #faa21e;
 }
