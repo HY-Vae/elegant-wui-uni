@@ -275,7 +275,7 @@ async function setScrollIntoView() {
   }
   if (wraperSelector) {
     await pause(2000 / 30)
-    Promise.all([getRect('.wd-select-picker__wrapper', false, proxy), getRect(wraperSelector, false, proxy), ...selectorPromise]).then((res) => {
+    Promise.all([getRect('.wui-select-picker__wrapper', false, proxy), getRect(wraperSelector, false, proxy), ...selectorPromise]).then((res) => {
       if (isDef(res) && isArray(res)) {
         const scrollView = res[0]
         const wraper = res[1]
