@@ -63,7 +63,7 @@ import { messageBoxProps, type MessageOptionsWithCallBack, type MessageResult } 
 import { defaultOptions, getMessageDefaultOptionKey } from '.'
 import { deepAssign, isDef, isFunction, isUndefined, omitBy } from '../common/util'
 import { useTranslate } from '../composables/useTranslate'
-import type { ButtonProps } from '../wd-button/types'
+import type { ButtonProps } from '../wui-button/types'
 
 const props = defineProps(messageBoxProps)
 
@@ -74,7 +74,7 @@ const rootClass = computed(() => {
 })
 
 const bodyClass = computed(() => {
-  return `wd-message-box__body ${!messageState.title ? 'is-no-title' : ''} ${messageState.type === 'prompt' ? 'is-prompt' : ''}`
+  return `wui-message-box__body ${!messageState.title ? 'is-no-title' : ''} ${messageState.type === 'prompt' ? 'is-prompt' : ''}`
 })
 
 const messageOptionKey = getMessageDefaultOptionKey(props.selector)
@@ -108,7 +108,7 @@ const customConfirmProps = computed(() => {
     },
     isDef(messageState.confirmButtonProps) ? omitBy(messageState.confirmButtonProps, isUndefined) : {}
   )
-  buttonProps.customClass = `${buttonProps.customClass || ''} wd-message-box__actions-btn`
+  buttonProps.customClass = `${buttonProps.customClass || ''} wui-message-box__actions-btn`
   return buttonProps
 })
 
@@ -123,7 +123,7 @@ const customCancelProps = computed(() => {
     },
     isDef(messageState.cancelButtonProps) ? omitBy(messageState.cancelButtonProps, isUndefined) : {}
   )
-  buttonProps.customClass = `${buttonProps.customClass || ''} wd-message-box__actions-btn`
+  buttonProps.customClass = `${buttonProps.customClass || ''} wui-message-box__actions-btn`
   return buttonProps
 })
 
