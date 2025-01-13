@@ -8,7 +8,8 @@
  * 记得注释
  */
 import { baseProps, makeStringProp } from '../common/props'
-import { type InputType } from '../wui-input/types'
+import type { ButtonProps } from '../wui-button/types'
+import { type InputSize, type InputType } from '../wui-input/types'
 
 export type MessageType = 'alert' | 'confirm' | 'prompt'
 
@@ -26,7 +27,6 @@ export type MessageOptions = {
    */
   showCancelButton?: boolean
 
-  show?: boolean
   /**
    * 是否支持点击蒙层进行关闭，点击蒙层回调传入的action为'modal'
    */
@@ -48,6 +48,10 @@ export type MessageOptions = {
    */
   type?: MessageType
   /**
+   * 设置输入框大小，可选值：large
+   */
+  inputSize?: InputSize
+  /**
    * 当type为prompt时，输入框类型
    */
   inputType?: InputType
@@ -66,7 +70,7 @@ export type MessageOptions = {
   /**
    * 当type为prompt时，输入框校验函数，点击确定按钮时进行校验
    */
-  inputValidate?: InputValidate | null
+  inputValidate?: InputValidate
   /**
    * 当type为prompt时，输入框检验不通过时的错误提示文案
    */
@@ -87,6 +91,19 @@ export type MessageOptions = {
    * 确认前钩子
    */
   beforeConfirm?: (options: MessageBeforeConfirmOption) => void
+  /**
+   * 取消按钮Props
+   */
+  cancelButtonProps?: Partial<ButtonProps>
+  /**
+   * 确认按钮Props
+   */
+  confirmButtonProps?: Partial<ButtonProps>
+}
+export type MessageOptionsWithCallBack = MessageOptions & {
+  show?: boolean
+  success?: (res: MessageResult) => void
+  fail?: (res: MessageResult) => void
 }
 
 export type ActionType = 'confirm' | 'cancel' | 'modal'
