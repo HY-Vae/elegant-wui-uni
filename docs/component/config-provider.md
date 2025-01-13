@@ -108,10 +108,11 @@ export default {
 ```
 
 ### 在 TypeScript 中使用
-在 TypeScript 中定义 `themeVars` 时，建议使用 __elegant-wui-uni__ 提供的 __ConfigProviderThemeVars__ 类型，可以提供完善的类型提示：
+
+在 TypeScript 中定义 `themeVars` 时，建议使用 **elegant-wui-uni** 提供的 **ConfigProviderThemeVars** 类型，可以提供完善的类型提示：
 
 ```ts
-import type { ConfigProviderThemeVars } from 'elegant-wui-uni';
+import type { ConfigProviderThemeVars } from 'elegant-wui-uni'
 
 const themeVars: ConfigProviderThemeVars = {
   colorTheme: 'red'
@@ -122,17 +123,50 @@ const themeVars: ConfigProviderThemeVars = {
 注意：ConfigProvider 仅影响它的子组件的样式，不影响全局 root 节点。
 :::
 
+编写控制主题组合式函数
+
+```ts
+// src/hooks/useTheme.ts
+import type { ConfigProviderThemeVars } from 'elegant-wui-uni'
+import { ref } from 'vue'
+const theme = ref<'light' | 'dark'>(false)
+const themeVars = ref<ConfigProviderThemeVars>()
+export function useTheme(vars?: ConfigProviderThemeVars) {
+  vars && (themeVars.value = vars)
+  function toggleTheme(mode?: 'light' | 'dark') {
+    theme.value = mode || (theme.value === 'light' ? 'dark' : 'light')
+  }
+  return {
+    theme,
+    themeVars,
+    toggleTheme
+  }
+}
+```
+
+在任意视图文件中使用切换主题模式
+
+```vue
+<!-- src/pages/*.vue -->
+<script setup lang="ts">
+import { useTheme } from '@/hooks/useTheme'
+const { theme, toggleTheme } = useTheme()
+</script>
+<template>
+  <button @click="toggleTheme">切换主题，当前模式：{{ theme }}</button>
+</template>
+```
+
 ## Attributes
 
-| 参数       | 说明                                             | 类型   | 可选值         | 默认值 | 最低版本 |
-| ---------- | ------------------------------------------------ | ------ | -------------- | ------ | -------- |
-| theme      | 主题风格，设置为 `dark` 来开启深色模式，全局生效 | string | `dark`/`light` | -      | -        |
+| 参数       | 说明                                             | 类型                      | 可选值         | 默认值 | 最低版本 |
+| ---------- | ------------------------------------------------ | ------------------------- | -------------- | ------ | -------- |
+| theme      | 主题风格，设置为 `dark` 来开启深色模式，全局生效 | string                    | `dark`/`light` | -      | -        |
 | theme-vars | 自定义主题变量                                   | `ConfigProviderThemeVars` | -              | -      | -        |
-
 
 ## 外部样式类
 
-| 类名         | 说明       | 最低版本         |
-| ------------ | ---------- | ---------------- |
-| custom-class | 根节点样式 | 1.3.9 |
-| custom-style | 根节点样式 | 1.3.9 |
+| 类名         | 说明       | 最低版本 |
+| ------------ | ---------- | -------- |
+| custom-class | 根节点样式 | 1.3.9    |
+| custom-style | 根节点样式 | 1.3.9    |
