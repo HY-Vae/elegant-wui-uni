@@ -1,5 +1,5 @@
-@import "./../common/abstracts/_mixin.scss";
-@import "./../common/abstracts/variable.scss";
+@import './../common/abstracts/_mixin.scss';
+@import './../common/abstracts/variable.scss';
 
 .wui-theme-dark {
   @include b(radio) {
@@ -29,7 +29,7 @@
           color: $-dark-color-gray;
         }
       }
-  
+
       @include when(button) {
         .wui-radio__label {
           border-color: #c8c9cc;
@@ -44,7 +44,7 @@
           }
         }
       }
-  
+
       @include when(dot) {
         .wui-radio__shape {
           border-color: #c8c9cc;
@@ -116,7 +116,7 @@
       transition: none;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         width: $-radio-dot-size;
         height: $-radio-dot-size;
@@ -125,7 +125,7 @@
         border-radius: 50%;
         background-color: #fff;
         transform: scale(0);
-        transition: transform .2s ease-in;
+        transition: transform 0.2s ease-in;
       }
     }
     @include when(checked) {
@@ -172,6 +172,10 @@
     }
   }
 
+  &.icon-placement-left {
+    flex-direction: row-reverse;
+  }
+
   @include when(inline) {
     display: inline-block;
     margin-top: 0;
@@ -185,7 +189,7 @@
       margin-right: 4px;
       float: left;
       &::after {
-        content: "";
+        content: '';
         display: table;
         clear: both;
       }
@@ -200,6 +204,14 @@
           margin-top: 0;
         }
       }
+    }
+  }
+
+  &.icon-placement-right {
+    .wui-radio__shape {
+      margin-right: 0;
+      margin-left: 4px;
+      float: right;
     }
   }
 

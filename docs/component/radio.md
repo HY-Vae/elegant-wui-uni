@@ -1,7 +1,6 @@
 <frame/>
 
-#  Radio 单选框
-
+# Radio 单选框
 
 ## 基本用法
 
@@ -16,6 +15,7 @@
   <view>当前选中的值为:{{value}}</view>
 </demo-block>
 ```
+
 ```typescript
 const value = ref<number>(1)
 ```
@@ -51,7 +51,6 @@ function change(e) {
 </wui-radio-group>
 ```
 
-
 ```typescript
 const value = ref<number>(1)
 
@@ -78,7 +77,7 @@ function change(e) {
 </wui-radio-group>
 ```
 
-``` ts
+```ts
 const value = ref<number>(1)
 ```
 
@@ -92,7 +91,8 @@ const value = ref<number>(1)
   <wui-radio value="2">单选框2</wui-radio>
 </wui-radio-group>
 ```
-``` ts
+
+```ts
 const value = ref<number>(1)
 ```
 
@@ -106,7 +106,8 @@ const value = ref<number>(1)
   <wui-radio value="2">商家后台</wui-radio>
 </wui-radio-group>
 ```
-``` ts
+
+```ts
 const value = ref<number>(1)
 ```
 
@@ -120,7 +121,8 @@ const value = ref<number>(1)
   <wui-radio value="2">商家后台</wui-radio>
 </wui-radio-group>
 ```
-``` ts
+
+```ts
 const value = ref<number>(1)
 ```
 
@@ -135,42 +137,43 @@ const value = ref<number>(1)
 </wui-radio-group>
 ```
 
-## Props优先级
+## Props 优先级
 
-radio设置的props优先级比radioGroup上设置的props优先级更高
+radio 设置的 props 优先级比 radioGroup 上设置的 props 优先级更高
 
 ```html
-  <wui-radio-group v-model="value" shape="button" disabled checked-color="#f00">
-    <wui-radio value="1" :disabled="false" checked-color="#000">商家后台</wui-radio>
-    <wui-radio value="2" :disabled="false">沃特</wui-radio>
-    <wui-radio value="3">商家智能</wui-radio>
-  </wui-radio-group>
+<wui-radio-group v-model="value" shape="button" disabled checked-color="#f00">
+  <wui-radio value="1" :disabled="false" checked-color="#000">商家后台</wui-radio>
+  <wui-radio value="2" :disabled="false">沃特</wui-radio>
+  <wui-radio value="3">商家智能</wui-radio>
+</wui-radio-group>
 ```
 
 ## RadioGroup Attributes
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
-|-----|------|-----|-------|-------|--------|
-| v-model | 会自动选中value对应的单选框 | string / number / boolean | - | - | - |
-| shape | 单选框形状 | string | dot / button / check | check | - |
-| size | 设置大小 | string | large | - | - |
-| checked-color | 选中的颜色 | string | - | #4D80F0 | - |
-| disabled | 禁用 | boolean | - | false | - |
-| max-width | 文字位置最大宽度 | string | - | - | - |
-| inline | 同行展示 | boolean | - | false | - |
-| cell | 表单模式 | boolean | - | false | - |
+| 参数           | 说明                          | 类型                      | 可选值               | 默认值  | 最低版本         |
+| -------------- | ----------------------------- | ------------------------- | -------------------- | ------- | ---------------- |
+| v-model        | 会自动选中 value 对应的单选框 | string / number / boolean | -                    | -       | -                |
+| shape          | 单选框形状                    | string                    | dot / button / check | check   | -                |
+| size           | 设置大小                      | string                    | large                | -       | -                |
+| checked-color  | 选中的颜色                    | string                    | -                    | #4D80F0 | -                |
+| disabled       | 禁用                          | boolean                   | -                    | false   | -                |
+| max-width      | 文字位置最大宽度              | string                    | -                    | -       | -                |
+| inline         | 同行展示                      | boolean                   | -                    | false   | -                |
+| cell           | 表单模式                      | boolean                   | -                    | false   | -                |
+| icon-placement | 勾选图标对齐方式              | string                    | left / right/ auto   | auto    | $LOWEST_VERSION$ |
 
 ## RadioGroup Events
 
-| 事件名称 | 说明 | 参数 | 最低版本 |
-|---------|-----|-----|---------|
-| change | 绑定值变化时触发 | `{ value }`  | - |
+| 事件名称 | 说明             | 参数        | 最低版本 |
+| -------- | ---------------- | ----------- | -------- |
+| change   | 绑定值变化时触发 | `{ value }` | -        |
 
 ## Radio Attributes
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
-|-----|------|-----|-------|-------|---------|
-| value | 单选框选中时的值。会自动匹配radioGroup的value | string / number / boolean | - | - | - |
-| shape | 单选框形状 | string | dot / button / check | check | - |
-| checked-color | 选中的颜色 | string | - | #4D80F0 | - |
-| disabled | 禁用 | boolean | - | false | - |
+| 参数          | 说明                                             | 类型                      | 可选值               | 默认值  | 最低版本 |
+| ------------- | ------------------------------------------------ | ------------------------- | -------------------- | ------- | -------- |
+| value         | 单选框选中时的值。会自动匹配 radioGroup 的 value | string / number / boolean | -                    | -       | -        |
+| shape         | 单选框形状                                       | string                    | dot / button / check | check   | -        |
+| checked-color | 选中的颜色                                       | string                    | -                    | #4D80F0 | -        |
+| disabled      | 禁用                                             | boolean                   | -                    | false   | -        |
