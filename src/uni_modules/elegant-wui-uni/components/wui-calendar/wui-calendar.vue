@@ -1,7 +1,7 @@
 <template>
   <view :class="`wui-calendar ${cell.border.value ? 'is-border' : ''} ${customClass}`">
-    <view class="wui-calendar__field" @click="open">
-      <slot v-if="useDefaultSlot"></slot>
+    <view class="wui-calendar__field" @click="open" v-if="withCell">
+      <slot v-if="$slots.default"></slot>
       <view
         v-else
         :class="`wui-calendar__cell ${disabled ? 'is-disabled' : ''} ${readonly ? 'is-readonly' : ''} ${alignRight ? 'is-align-right' : ''} ${
@@ -9,12 +9,11 @@
         } ${size ? 'is-' + size : ''} ${center ? 'is-center' : ''}`"
       >
         <view
-          v-if="label || useLabelSlot"
+          v-if="label || $slots.label"
           :class="`wui-calendar__label ${isRequired ? 'is-required' : ''} ${customLabelClass}`"
           :style="labelWidth ? 'min-width:' + labelWidth + ';max-width:' + labelWidth + ';' : ''"
         >
-          <block v-if="label">{{ label }}</block>
-          <slot v-else name="label"></slot>
+          <slot name="label">{{ label }}</slot>
         </view>
         <view class="wui-calendar__body">
           <view class="wui-calendar__value-wraper">

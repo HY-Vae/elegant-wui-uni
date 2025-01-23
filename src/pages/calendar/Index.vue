@@ -44,8 +44,9 @@
         </wui-calendar>
       </view>
     </demo-block>
-    <demo-block transparent title="open事件">
-      <wui-calendar v-model="value17" @open="handleOpen" />
+    <demo-block title="组件实例事件">
+      <wui-button @click="openCalendar">打开日历</wui-button>
+      <wui-calendar ref="calendarRef" v-model="value17" :with-cell="false" @confirm="handleConfirm5" />
     </demo-block>
   </page-wraper>
   <wui-message-box />
@@ -54,10 +55,8 @@
 import { useToast } from '@/uni_modules/elegant-wui-uni'
 import { dayjs } from '@/uni_modules/elegant-wui-uni'
 import type { CalendarDayItem, CalendarFormatter } from '@/uni_modules/elegant-wui-uni/components/wui-calendar-view/types'
-import type { CalendarOnShortcutsClickOption } from '@/uni_modules/elegant-wui-uni/components/wui-calendar/types'
+import type { CalendarInstance, CalendarOnShortcutsClickOption } from '@/uni_modules/elegant-wui-uni/components/wui-calendar/types'
 import { ref } from 'vue'
-import { useMessage } from '@/uni_modules/elegant-wui-uni'
-const message = useMessage()
 
 const minDate = ref<number>(new Date(new Date().getFullYear() - 20, new Date().getMonth() - 6, new Date().getDate()).getTime())
 
@@ -78,6 +77,13 @@ const value14 = ref<number | null>(null)
 const value15 = ref<number | null>(null)
 const value16 = ref<number>(Date.now())
 const value17 = ref<number>(Date.now())
+
+const calendarRef = ref<CalendarInstance>()
+
+function openCalendar() {
+  calendarRef.value?.open()
+}
+
 const formatValue = ref<string>('')
 const formatter: CalendarFormatter = (day: CalendarDayItem) => {
   const date = new Date(day.date)
@@ -171,8 +177,8 @@ function handleConfirm4({ value }: any) {
   console.log(new Date(value).toString())
   formatValue.value = new Date(value).toString()
 }
-function handleOpen() {
-  message.alert('打开日历')
+function handleConfirm5({ value }: any) {
+  toast.success('已选择' + dayjs(value).format('YYYY年MM月DD日'))
 }
 </script>
 <style lang="scss" scoped></style>

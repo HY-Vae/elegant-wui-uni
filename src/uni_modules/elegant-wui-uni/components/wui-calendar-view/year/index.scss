@@ -12,7 +12,6 @@
     }
 
     @include e(month) {
-
       @include when(disabled) {
         .wui-year__month-text {
           color: $-dark-color-gray;
@@ -45,6 +44,7 @@
     height: $-calendar-day-height;
     line-height: $-calendar-day-height;
     text-align: center;
+    margin-bottom: $-calendar-item-margin-bottom;
 
     @include when(disabled) {
       .wui-year__month-text {
@@ -70,7 +70,7 @@
     }
 
     @include when(start) {
-      color: #fff;
+      color: $-calendar-selected-color;
 
       &::after {
         position: absolute;
@@ -84,7 +84,7 @@
 
       .wui-year__month-text {
         background: $-calendar-active-color;
-        border-radius: $-calendar-active-border;
+        border-radius: $-calendar-active-border 0 0 $-calendar-active-border;
       }
 
       &.is-without-end::after {
@@ -93,7 +93,7 @@
     }
 
     @include when(end) {
-      color: #fff;
+      color: $-calendar-selected-color;
 
       &::after {
         position: absolute;
@@ -107,17 +107,20 @@
 
       .wui-year__month-text {
         background: $-calendar-active-color;
-        border-radius: $-calendar-active-border;
+        border-radius: 0 $-calendar-active-border $-calendar-active-border 0;
       }
     }
 
     @include when(same) {
-      color: #fff;
+      color: $-calendar-selected-color;
 
       .wui-year__month-text {
         background: $-calendar-active-color;
         border-radius: $-calendar-active-border;
       }
+    }
+    @include when(last-row) {
+      margin-bottom: 0;
     }
   }
 

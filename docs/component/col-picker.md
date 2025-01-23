@@ -632,7 +632,7 @@ const columnChange = ({ selectedItem, resolve, finish }) => {
 | title                  | 弹出层标题                                                                                                                     | string            | -      | -       | -        |
 | label                  | 选择器左侧文案                                                                                                                 | string            | -      | -       | -        |
 | placeholder            | 选择器占位符                                                                                                                   | string            | -      | 请选择  | -        |
-| disabled               | 禁用                                                                                                                           | boolean           | -      | fasle   | -        |
+| disabled               | 禁用                                                                                                                           | boolean           | -      | false   | -        |
 | readonly               | 只读                                                                                                                           | boolean           | -      | false   | -        |
 | display-format         | 自定义展示文案的格式化函数，返回一个字符串                                                                                     | function          | -      | -       | -        |
 | column-change          | 接收当前列的选中项 item、当前列下标、当前列选中项下标下一列数据处理函数 resolve、结束选择 finish                               | function          | -      | -       | -        |
@@ -651,7 +651,7 @@ const columnChange = ({ selectedItem, resolve, finish }) => {
 | safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型）                                                                            | boolean           | -      | true    | -        |
 | ellipsis               | 是否超出隐藏                                                                                                                   | boolean           | -      | false   | -        |
 | prop                   | 表单域 `model` 字段名，在使用表单校验功能的情况下，该属性是必填的                                                              | string            | -      | -       | -        |
-| rules                  | 表单验证规则，结合`wui-form`组件使用                                                                                            | `FormItemRule []` | -      | `[]`    | -        |
+| rules                  | 表单验证规则，结合`wui-form`组件使用                                                                                           | `FormItemRule []` | -      | `[]`    | -        |
 | lineWidth              | 底部条宽度，单位像素                                                                                                           | number            | -      | -       | 1.3.7    |
 | lineHeight             | 底部条高度，单位像素                                                                                                           | number            | -      | -       | 1.3.7    |
 

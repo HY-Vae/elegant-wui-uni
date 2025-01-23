@@ -2,12 +2,14 @@
   <wui-toast selector="wui-year" />
 
   <view class="wui-year year">
-    <view class="wui-year__title">{{ yearTitle(date) }}</view>
+    <view class="wui-year__title" v-if="showTitle">{{ yearTitle(date) }}</view>
     <view class="wui-year__months">
       <view
         v-for="(item, index) in months"
         :key="index"
-        :class="`wui-year__month ${item.disabled ? 'is-disabled' : ''} ${item.type ? itemClass(item.type, value!, type) : ''}`"
+        :class="`wui-year__month ${item.disabled ? 'is-disabled' : ''} ${item.isLastRow ? 'is-last-row' : ''} ${
+          item.type ? monthTypeClass(item.type) : ''
+        }`"
         @click="handleDateClick(index)"
       >
         <view class="wui-year__month-top">{{ item.topInfo }}</view>
@@ -36,7 +38,7 @@ import { useToast } from '../../wui-toast'
 import { useTranslate } from '../../composables/useTranslate'
 import { dayjs } from '../../common/dayjs'
 import { yearProps } from './types'
-import type { CalendarDayItem, CalendarDayType, CalendarType } from '../types'
+import type { CalendarDayItem, CalendarDayType } from '../types'
 
 const props = defineProps(yearProps)
 const emit = defineEmits(['change'])
@@ -46,9 +48,9 @@ const { translate } = useTranslate('calendar-view')
 
 const months = ref<CalendarDayItem[]>([])
 
-const itemClass = computed(() => {
-  return (monthType: CalendarDayType, value: number | (number | null)[], type: CalendarType) => {
-    return getItemClass(monthType, value, type)
+const monthTypeClass = computed(() => {
+  return (monthType: CalendarDayType) => {
+    return getItemClass(monthType, props.value, props.type)
   }
 })
 
@@ -179,7 +181,8 @@ function getFormatterDate(date: number, month: number, type?: CalendarDayType) {
     topInfo: '',
     bottomInfo: '',
     type,
-    disabled: compareMonth(date, props.minDate) === -1 || compareMonth(date, props.maxDate) === 1
+    disabled: compareMonth(date, props.minDate) === -1 || compareMonth(date, props.maxDate) === 1,
+    isLastRow: month >= 8
   }
   if (props.formatter) {
     if (isFunction(props.formatter)) {

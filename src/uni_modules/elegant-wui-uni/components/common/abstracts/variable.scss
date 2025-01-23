@@ -218,10 +218,12 @@ $-calendar-day-fw: var(--wui-calendar-day-fw, 500) !default;
 $-calendar-day-height: var(--wui-calendar-day-height, 64px) !default;
 $-calendar-month-width: var(--wui-calendar-month-width, 50px) !default;
 $-calendar-active-color: var(--wui-calendar-active-color, $-color-theme) !default;
+$-calendar-selected-color: var(--wui-calendar-selected-color, $-color-white) !default;
 $-calendar-disabled-color: var(--wui-calendar-disabled-color, rgba(0, 0, 0, 0.25)) !default;
 $-calendar-range-color: var(--wui-calendar-range-color, rgba(#4d80f0, 0.09)) !default;
 $-calendar-active-border: var(--wui-calendar-active-border, 8px) !default;
 $-calendar-info-fs: var(--wui-calendar-info-fs, 10px) !default;
+$-calendar-item-margin-bottom: var(--wui-calendar-item-margin-bottom, 4px) !default;
 
 /* checkbox */
 $-checkbox-margin: var(--wui-checkbox-margin, 10px) !default; // 多个复选框距离
