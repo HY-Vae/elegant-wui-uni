@@ -161,7 +161,7 @@ radio 设置的 props 优先级比 radioGroup 上设置的 props 优先级更高
 | max-width      | 文字位置最大宽度              | string                    | -                    | -       | -                |
 | inline         | 同行展示                      | boolean                   | -                    | false   | -                |
 | cell           | 表单模式                      | boolean                   | -                    | false   | -                |
-| icon-placement | 勾选图标对齐方式              | string                    | left / right/ auto   | auto    | $LOWEST_VERSION$ |
+| icon-placement | 勾选图标对齐方式              | string                    | left / right/ auto   | auto    | 1.5.0 |
 
 ## RadioGroup Events
 

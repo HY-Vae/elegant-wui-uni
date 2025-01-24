@@ -1,6 +1,34 @@
 # 更新日志
 
-## [1.4.0](https://github.com/zhangyao1990/elegant-wui-uni/compare/v1.3.14...v1.4.0) (2024-11-24)
+## ## [1.5.0](/compare/v1.4.0...v1.5.0) (2024-12-09)
+### 🐛 Bug Fixes | Bug 修复
+* 🐛 修复 Button 按钮设置为 block 无效的问题 
+* 🐛 修复 Cell 设置 label 过长时影响页面结构的问题
+* 🐛 修复 Collapse v-model绑定数据变化时未更新折叠面板状态的问题
+* 🐛 修复 GridItem 徽标属性类型标注错误的问题
+* 🐛 修复 Progress 无法设置进度为 0 的问题 
+* 🐛 修复 Swiper 在支付宝小程序平台点击事件无效的问题
+* 🐛 修复 Tab 未渲染项高度会影响整体高度的问题
+* 🐛 修复 vue-tsc 校验不通过的问题
+* 🐛 修复微信小程序在iOS设备上处于后台一段时间后抖动的问题
+### ✏️ Documentation | 文档
+* ✏️  添加 MessageBox 自定义按钮样式的文档
+* ✏️  优化 Cell 关于 clickable 和 is-link 的介绍
+* ✏️  增加 ConfigProvider 组件设定全局共享示例 
+* ✏️  Table 表格组件提供结合分页器使用的demo 
+### ✨ Features | 新功能
+* ✨ 优化 Divider 分割线功能支持虚线、垂直等功能 
+* ✨ Calendar 优化选中样式和滚动位置处理并支持屏蔽内置cell
+* ✨ Curtain 幕帘新增 close 插槽和自定义关闭插槽样式类 
+* ✨ DropMenuItem 增加自定 Popup 样式参数 
+* ✨ Input、Textarea在APP-VUE和H5端支持inputmode
+* ✨ MessageBox 新增确认、取消按钮的 ButtonProps 属性
+* ✨ Radio添加icon-placement属性用于控制图标方向
+* ✨ Segmented 提供 updateActiveStyle 方法设置激活样式 
+* ✨ Table 支持设置不固定表头
+* ✨ Upload 支持文件重传
+
+[1.4.0](https://github.com/zhangyao1990/elegant-wui-uni/compare/v1.3.14...v1.4.0) (2024-11-24)
 
 ### ✨ Features | 新功能
 
