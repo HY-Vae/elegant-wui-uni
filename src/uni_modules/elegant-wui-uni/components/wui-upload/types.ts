@@ -321,7 +321,7 @@ export const uploadProps = {
    * 点击已上传时是否可以重新上传
    * 类型：boolean
    */
-  reupload: makeBooleanProp(true),
+  reupload: makeBooleanProp(false),
   /**
    * 自定义上传文件的请求方法
    * 类型：UploadMethod
