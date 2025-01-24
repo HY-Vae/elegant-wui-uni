@@ -651,7 +651,7 @@ $-loading-size: var(--wui-loading-size, 32px) !default; // loading 大小
 /* tooltip */
 $-tooltip-bg: var(--wui-tooltip-bg, rgba(38, 39, 40, 0.8)) !default; // 背景色
 $-tooltip-color: var(--wui-tooltip-color, $-color-white) !default; // 文字颜色
-$-tooltip-radius: var(--wui-tooltip-radius, 8px) !default; // 圆角大小
+$-tooltip-radius: var(--wui-tooltip-radius, 5px) !default; // 圆角大小
 $-tooltip-arrow-size: var(--wui-tooltip-arrow-size, 5px) !default; // 箭头大小
 $-tooltip-fs: var(--wui-tooltip-fs, $-fs-content) !default; // 字号
 $-tooltip-blur: var(--wui-tooltip-blur, 10px) !default; // 背景高斯模糊效果

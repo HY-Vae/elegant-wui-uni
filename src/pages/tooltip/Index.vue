@@ -1,19 +1,22 @@
 <template>
   <page-wraper>
     <wui-toast />
-    <view style="overflow: hidden" @click.stop="closeOutside">
+    <view style="overflow: hidden" class="page-tooltip" @click.stop="closeOutside">
       <demo-block title="基本用法">
-        <view class="top">
-          <wui-tooltip placement="bottom-start" content="bottom-start 提示文字" @change="handleChange1">
-            <wui-button :round="false">bottom-start</wui-button>
-          </wui-tooltip>
-          <wui-tooltip placement="bottom" content="bottom 提示文字" @change="handleChange2">
-            <wui-button :round="false">bottom</wui-button>
-          </wui-tooltip>
-          <wui-tooltip placement="bottom-end" content="bottom-end 提示文字" @change="handleChange3">
-            <wui-button :round="false">bottom-end</wui-button>
-          </wui-tooltip>
+        <view>
+          <view class="top">
+            <wui-tooltip placement="bottom-start" content="bottom-start 提示文字" @change="handleChange1">
+              <wui-button :round="false">bottom-start</wui-button>
+            </wui-tooltip>
+            <wui-tooltip placement="bottom" content="bottom 提示文字" @change="handleChange2">
+              <wui-button :round="false">bottom</wui-button>
+            </wui-tooltip>
+            <wui-tooltip placement="bottom-end" content="bottom-end 提示文字" @change="handleChange3">
+              <wui-button :round="false">bottom-end</wui-button>
+            </wui-tooltip>
+          </view>
         </view>
+
         <view class="left">
           <wui-tooltip placement="right-start" content="right-start 提示文字" @change="handleChange4">
             <wui-button :round="false">right-start</wui-button>
@@ -64,9 +67,23 @@
             <wui-button :round="false">多行文本</wui-button>
             <template #content>
               <view class="lines-content">
-                <view>多行文本1</view>
-                <view>多行文本2</view>
-                <view>多行文本3</view>
+                <view>第一行文本</view>
+                <view>第二行文本</view>
+                <view>第三行文本</view>
+              </view>
+            </template>
+          </wui-tooltip>
+        </view>
+      </demo-block>
+      <demo-block title="插槽使用">
+        <view class="demo-left lines-demo">
+          <wui-tooltip placement="top-start" use-content-slot v-model="show1">
+            <wui-button :round="false">插槽使用</wui-button>
+            <template #content>
+              <view class="line-slot-content">
+                <view class="copy-text" @click="handleCopy">复制</view>
+                <view class="reply-text" @click="handleReply">回复</view>
+                <view class="withdraw-text" @click="handleWithdraw">撤回</view>
               </view>
             </template>
           </wui-tooltip>
@@ -74,10 +91,10 @@
       </demo-block>
       <demo-block title="控制显隐">
         <view @click.stop="control">
-          <wui-button plain size="small" class="button-control">{{ show15 ? '关闭' : '打开' }}</wui-button>
+          <wui-button plain size="small" class="button-control">{{ show ? '关闭' : '打开' }}</wui-button>
         </view>
         <view class="demo-left demo-control">
-          <wui-tooltip placement="top" content="控制显隐" v-model="show15">
+          <wui-tooltip placement="top" content="控制显隐" v-model="show">
             <wui-button :round="false">top</wui-button>
           </wui-tooltip>
         </view>
@@ -103,23 +120,8 @@
 import { useToast, useQueue } from '@/uni_modules/elegant-wui-uni'
 import { ref } from 'vue'
 
+const show = ref<boolean>(false)
 const show1 = ref<boolean>(false)
-const show2 = ref<boolean>(false)
-const show3 = ref<boolean>(false)
-const show4 = ref<boolean>(false)
-const show5 = ref<boolean>(false)
-const show6 = ref<boolean>(false)
-const show7 = ref<boolean>(false)
-const show8 = ref<boolean>(false)
-const show9 = ref<boolean>(false)
-const show10 = ref<boolean>(false)
-const show11 = ref<boolean>(false)
-const show12 = ref<boolean>(false)
-const show13 = ref<boolean>(false)
-const show14 = ref<boolean>(false)
-const show15 = ref<boolean>(false)
-const show16 = ref<boolean>(false)
-const show17 = ref<boolean>(false)
 const content = ref<string>('显示内容')
 
 const toast = useToast()
@@ -127,8 +129,7 @@ const toast = useToast()
 const { closeOutside } = useQueue()
 
 function control() {
-  show15.value = !show15.value
-  //   this.setData({ show15: !this.data.show15 })
+  show.value = !show.value
 }
 function onShow() {
   console.log('显示')
@@ -178,17 +179,34 @@ function handleChange13(event: any) {
 function handleChange14(event: any) {
   console.log(event)
 }
-function handleChange15(event: any) {
-  console.log(event)
-}
 function handleChange16(event: any) {
   console.log(event)
 }
 function handleChange17(event: any) {
   console.log(event)
 }
+
+function handleCopy() {
+  toast.show('复制')
+  show1.value = false
+}
+function handleReply() {
+  toast.show('回复')
+  show1.value = false
+}
+function handleWithdraw() {
+  toast.show('撤回')
+  show1.value = false
+}
 </script>
 <style lang="scss" scoped>
+.page-tooltip {
+  :deep() {
+    .wd-button {
+      min-width: auto;
+    }
+  }
+}
 .position-wrap {
   position: relative;
 }
@@ -238,6 +256,35 @@ function handleChange17(event: any) {
 .lines-content {
   color: #fff;
   padding: 5px;
-  width: 90px;
+}
+.line-slot-content {
+  color: #fff;
+  width: 150px;
+  height: 30px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  .copy-text,
+  .reply-text,
+  .withdraw-text {
+    position: relative;
+    padding: 0 8px;
+  }
+  .copy-text:before,
+  .reply-text:before {
+    content: '';
+    height: 13px;
+    position: absolute;
+    top: 3px;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    background-color: #fff;
+  }
+}
+:deep(.wui-button) {
+  min-width: 105px !important;
 }
 </style>

@@ -40,7 +40,6 @@ import { useQueue } from '@/uni_modules/elegant-wui-uni'
 const { closeOutside } = useQueue()
 
 const show = ref<boolean>(false)
-
 ```
 
 ## 更多 Content
@@ -86,17 +85,15 @@ Tooltip 组件通过属性`show-close` 控制是否显示关闭按钮。
 ```
 
 ## 控制显隐
+
 通过绑定`v-model`控制 `tooltip` 的显隐。
 
 ```html
-<wui-button plain @click="control" size="small" class="button-control">
-  {{ show ? '关闭' : '打开' }}
-</wui-button>
+<wui-button plain @click="control" size="small" class="button-control">{{ show ? '关闭' : '打开' }}</wui-button>
 
 <wui-tooltip placement="top" content="控制显隐" v-model="show">
   <wui-button :round="false">top</wui-button>
 </wui-tooltip>
-
 ```
 
 ```ts
@@ -108,8 +105,6 @@ const control = () => {
   show.value = !show.value
 }
 ```
-
-
 
 ## 高级扩展
 
@@ -150,23 +145,23 @@ const control = () => {
 
 ## Tooltip Attributes
 
-| 参数          | 说明                                       | 类型           | 可选值                                                                                                                          | 默认值 | 最低版本 |
-| ------------- | ------------------------------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- |
-| show          | 状态是否可见                               | boolean        | -                                                                                                                               | false  | -        |
-| content       | 显示的内容，也可以通过 `slot#content` 传入 | string / array | -                                                                                                                               | -      | -        |
-| placement     | Tooltip 的出现位置                         | string         | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | bottom | -        |
-| disabled      | Tooltip 是否可用                           | boolean        | -                                                                                                                               | false  | -        |
-| visible-arrow | 是否显示 Tooltip 箭头                      | boolean        | -                                                                                                                               | true   | -        |
-| offset        | 出现位置的偏移量                           | number | number[] | {x:0, y:0}         | -                                                                                                                               | 0      | 1.3.12        |
-| show-close    | 是否显示 Tooltip 内部的关闭按钮            | boolean        | -                                                                                                                               | false  | -        |
+| 参数          | 说明                                       | 类型              | 可选值                                                                                                                          | 默认值       | 最低版本 |
+| ------------- | ------------------------------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------- |
+| show          | 状态是否可见                               | boolean           | -                                                                                                                               | false        | -        |
+| content       | 显示的内容，也可以通过 `slot#content` 传入 | string / array    | -                                                                                                                               | -            | -        |
+| placement     | Tooltip 的出现位置                         | string            | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | bottom       | -        |
+| disabled      | Tooltip 是否可用                           | boolean           | -                                                                                                                               | false        | -        |
+| visible-arrow | 是否显示 Tooltip 箭头                      | boolean           | -                                                                                                                               | true         | -        |
+| offset        | 出现位置的偏移量                           | number / number[] | -                                                                                                                               | `{x:0, y:0}` | 1.3.12   |
+| show-close    | 是否显示 Tooltip 内部的关闭按钮            | boolean           | -                                                                                                                               | false        | -        |
 
 ## Events
 
-| 事件名称    | 说明             | 回调参数 | 最低版本 |
-| ----------- | ---------------- | -------- | -------- |
-| open   | 显示时触发       | -        | -        |
-| close  | 隐藏时触发       | -        | -        |
-| change | 显隐值变化时触发 | -        | -        |
+| 事件名称 | 说明             | 回调参数 | 最低版本 |
+| -------- | ---------------- | -------- | -------- |
+| open     | 显示时触发       | -        | -        |
+| close    | 隐藏时触发       | -        | -        |
+| change   | 显隐值变化时触发 | -        | -        |
 
 ## Methods
 
