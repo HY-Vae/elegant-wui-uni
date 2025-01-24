@@ -38,7 +38,7 @@ export default {
 <script lang="ts" setup>
 import { computed, ref, onMounted, nextTick } from 'vue'
 import { setNotifyDefaultOptions, type ConfigProviderThemeVars } from '@/uni_modules/elegant-wui-uni'
-import { useDark } from '../../store'
+import { useDark } from '@/store'
 
 interface Props {
   showDarkMode?: boolean
