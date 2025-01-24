@@ -202,7 +202,7 @@ function handleWithdraw() {
 <style lang="scss" scoped>
 .page-tooltip {
   :deep() {
-    .wd-button {
+    .wui-button {
       min-width: auto;
     }
   }

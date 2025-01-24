@@ -20,16 +20,8 @@
       @animationfinish="handleAnimationfinish"
     >
       <swiper-item v-for="(item, index) in list" :key="index" class="wui-swiper__item">
-        <image
-          v-if="isImage(item)"
-          :src="isObj(item) ? item[valueKey] : item"
-          :class="`wui-swiper__image ${customImageClass} ${customItemClass} ${getCustomItemClass(currentValue, index, list)}`"
-          :style="{ height: addUnit(height) }"
-          :mode="imageMode"
-          @click="handleClick(index, item)"
-        />
         <video
-          v-else-if="isVideo(item)"
+          v-if="isVideo(item)"
           :id="`video-${index}-${uid}`"
           :style="{ height: addUnit(height) }"
           :src="isObj(item) ? item[valueKey] : item"
@@ -42,6 +34,14 @@
           muted
           :autoplay="autoplayVideo"
           objectFit="cover"
+          @click="handleClick(index, item)"
+        />
+        <image
+          v-else
+          :src="isObj(item) ? item[valueKey] : item"
+          :class="`wui-swiper__image ${customImageClass} ${customItemClass} ${getCustomItemClass(currentValue, index, list)}`"
+          :style="{ height: addUnit(height) }"
+          :mode="imageMode"
           @click="handleClick(index, item)"
         />
         <text v-if="isObj(item) && item[textKey]" :class="`wui-swiper__text ${customTextClass}`" :style="customTextStyle">{{ item[textKey] }}</text>
@@ -136,10 +136,11 @@ const swiperIndicator = computed(() => {
 })
 
 const getMediaType = (item: string | SwiperList, type: 'video' | 'image') => {
+  const checkType = (url: string) => (type === 'video' ? isVideoUrl(url) : isImageUrl(url))
   if (isObj(item)) {
-    return item.type ? item.type === type : type === 'video' ? isVideoUrl(item[props.valueKey]) : isImageUrl(item[props.valueKey])
+    return item.type && ['video', 'image'].includes(item.type) ? item.type === type : checkType(item[props.valueKey])
   } else {
-    return type === 'video' ? isVideoUrl(item) : isImageUrl(item)
+    return checkType(item)
   }
 }
 
