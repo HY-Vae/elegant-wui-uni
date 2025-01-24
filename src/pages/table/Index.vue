@@ -1,35 +1,35 @@
 <template>
   <page-wraper>
     <demo-block title="基本用法">
-      <wui-table :data="dataList" @sort-method="handleSort" height="328px" @row-click="handleRowClick">
+      <wui-table :data="dataList" @sort-method="handleSort" height="400px" @row-click="handleRowClick">
         <wui-table-col prop="name" label="姓名" align="center" width="50%"></wui-table-col>
         <wui-table-col prop="grade" label="分数" align="center" width="50%"></wui-table-col>
       </wui-table>
     </demo-block>
 
     <demo-block title="无边框">
-      <wui-table :data="dataList" @sort-method="handleSort" height="328px" :border="false" @row-click="handleRowClick">
+      <wui-table :data="dataList" @sort-method="handleSort" height="400px" :border="false" @row-click="handleRowClick">
         <wui-table-col prop="name" label="姓名" align="center" width="50%"></wui-table-col>
         <wui-table-col prop="grade" label="分数" align="center" width="50%"></wui-table-col>
       </wui-table>
     </demo-block>
 
     <demo-block title="无斑马纹">
-      <wui-table :data="dataList" @sort-method="handleSort" height="328px" :stripe="false" @row-click="handleRowClick">
+      <wui-table :data="dataList" @sort-method="handleSort" height="400px" :stripe="false" @row-click="handleRowClick">
         <wui-table-col prop="name" label="姓名" align="center" width="50%"></wui-table-col>
         <wui-table-col prop="grade" label="分数" align="center" width="50%"></wui-table-col>
       </wui-table>
     </demo-block>
 
     <demo-block title="不展示表头">
-      <wui-table :data="dataList" @sort-method="handleSort" height="328px" :show-header="false" @row-click="handleRowClick">
+      <wui-table :data="dataList" @sort-method="handleSort" height="400px" :show-header="false" @row-click="handleRowClick">
         <wui-table-col prop="name" label="姓名" align="center" width="50%"></wui-table-col>
         <wui-table-col prop="grade" label="分数" align="center" width="50%"></wui-table-col>
       </wui-table>
     </demo-block>
 
     <demo-block title="固定列">
-      <wui-table :data="dataList" @sort-method="handleSort" @row-click="handleRowClick" height="328px">
+      <wui-table :data="dataList" @sort-method="handleSort" @row-click="handleRowClick" height="400px">
         <wui-table-col prop="name" label="姓名" fixed sortable align="center"></wui-table-col>
         <wui-table-col prop="grade" label="分数" fixed sortable align="center"></wui-table-col>
         <wui-table-col prop="hobby" label="一言以蔽之" sortable :width="160"></wui-table-col>
@@ -40,7 +40,7 @@
     </demo-block>
 
     <demo-block title="显示索引">
-      <wui-table :data="dataList" height="328px" @sort-method="handleSort" :index="{ align: 'center' }">
+      <wui-table :data="dataList" height="400px" @sort-method="handleSort" :index="{ align: 'center' }">
         <wui-table-col prop="name" label="姓名" sortable align="center"></wui-table-col>
         <wui-table-col prop="grade" label="分数" sortable align="center"></wui-table-col>
         <wui-table-col prop="hobby" label="一言以蔽之" sortable :width="160"></wui-table-col>
@@ -51,7 +51,7 @@
     </demo-block>
 
     <demo-block title="自定义列模板">
-      <wui-table :data="dataList" @sort-method="handleSort" @row-click="handleRowClick" height="328px">
+      <wui-table :data="dataList" @sort-method="handleSort" @row-click="handleRowClick" height="400px">
         <wui-table-col prop="name" label="姓名" fixed sortable align="center"></wui-table-col>
         <wui-table-col prop="grade" label="分数" fixed sortable align="center">
           <template #value="{ row }">
@@ -68,8 +68,8 @@
         <wui-table-col prop="graduation" label="学成时间"></wui-table-col>
       </wui-table>
     </demo-block>
-    <demo-block title="结合分页器">
-      <wui-table :data="paginationData" height="auto">
+    <demo-block title="不固定表头结合分页器">
+      <wui-table :data="paginationData" :fixed-header="false">
         <wui-table-col prop="name" label="姓名" fixed align="center"></wui-table-col>
         <wui-table-col prop="grade" label="分数" align="center"></wui-table-col>
         <wui-table-col prop="hobby" label="一言以蔽之" :width="160"></wui-table-col>

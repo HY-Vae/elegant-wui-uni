@@ -124,7 +124,7 @@ const action: string = 'https://mockapi.eolink.com/zhTuw2P8c29bc981a741931bdd86e
 ```
 
 ```typescript
-import { useToast, useMessage } from '@/uni_modules/wot-design-uni'
+import { useToast, useMessage } from '@/uni_modules/elegant-wui-uni'
 
 const messageBox = useMessage()
 const toast = useToast()
@@ -167,7 +167,7 @@ function handleChange({ fileList }) {
 ```
 
 ```typescript
-import { useToast, useMessage } from '@/uni_modules/wot-design-uni'
+import { useToast, useMessage } from '@/uni_modules/elegant-wui-uni'
 
 const messageBox = useMessage()
 const toast = useToast()
@@ -210,7 +210,7 @@ function handleChange({ fileList }) {
 ```
 
 ```typescript
-import { useToast, useMessage } from '@/uni_modules/wot-design-uni'
+import { useToast, useMessage } from '@/uni_modules/elegant-wui-uni'
 
 const messageBox = useMessage()
 const toast = useToast()
@@ -254,7 +254,7 @@ function handleChange({ fileList }) {
 ```
 
 ```typescript
-import { useToast, useMessage } from '@/uni_modules/wot-design-uni'
+import { useToast, useMessage } from '@/uni_modules/elegant-wui-uni'
 
 const messageBox = useMessage()
 const toast = useToast()
@@ -547,7 +547,7 @@ const onUploadClick = () => {
 ```
 
 ```typescript
-import type { UploadMethod, UploadFile } from '@/uni_modules/wot-design-uni/components/wui-upload/types'
+import type { UploadMethod, UploadFile } from '@/uni_modules/elegant-wui-uni/components/wui-upload/types'
 
 const fileList = ref<UploadFile[]>([])
 const customUpload: UploadMethod = (file, formData, options) => {

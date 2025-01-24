@@ -4,11 +4,11 @@
  * @LastEditTime: 2024-07-18 19:02:32
  * @LastEditors: Mr zhang
  * @Description:
- * @FilePath: \elegant-wui-uni\src\uni_modules\elegant-wui-uni\components\wui-table\types.ts
+ * @FilePath: /elegant-wui-uni/src/uni_modules/elegant-wui-uni/components/wui-table/types.ts
  * 记得注释
  */
 import type { CSSProperties, ExtractPropTypes, InjectionKey } from 'vue'
-import { baseProps, makeBooleanProp, makeNumericProp, makeRequiredProp, makeStringProp } from '../common/props'
+import { baseProps, makeBooleanProp, makeNumericProp, makeRequiredProp, numericProp } from '../common/props'
 import type { TableColumnProps } from '../wui-table-col/types'
 import type { PropType } from 'vue'
 
@@ -29,7 +29,7 @@ export const tableProps = {
   /**
    * Table 的高度
    */
-  height: makeStringProp('80vh'),
+  height: numericProp,
   /**
    * 行高
    */
@@ -48,14 +48,17 @@ export const tableProps = {
   index: {
     type: [Object, Boolean] as PropType<boolean | Omit<Partial<TableColumnProps>, 'prop'>>,
     default: false
-  }
+  },
+  fixedHeader: makeBooleanProp(true)
 }
 
 export type TableProps = ExtractPropTypes<typeof tableProps>
 
 export type TableProvide = {
   props: Omit<TableProps, 'index' | 'customStyle' | 'customClass'>
-  scrollLeft: number
+  state: {
+    scrollLeft: number
+  }
   rowClick: (index: number) => void
   getIsLastFixed: (column: { fixed: boolean; prop: string }) => boolean
   getFixedStyle: (index: number, style: CSSProperties) => CSSProperties

@@ -92,11 +92,7 @@
         </demo-block>
         <demo-block title="自定义样式" transparent>
           <wui-grid>
-            <wui-grid-item
-              custom-class="custom-item"
-              icon="search"
-              text="京东JD.COM-专业的综合网上购物商城，销售超数万品牌、4020万种商品，囊括家电、手机、电脑、母婴、服装等13大品类。"
-            />
+            <wui-grid-item custom-class="custom-item" icon="search" text="4020万种商品，囊括家电、手机、电脑、母婴、服装等13大品类。" />
             <wui-grid-item custom-class="custom-item" icon="setting" text="秉承客户为先的理念，京东所售商品为正品行货、全国联保、机打发票。" />
           </wui-grid>
         </demo-block>
@@ -168,6 +164,9 @@ function click() {
   text-align: left !important;
   padding: 0 10px;
   background: #fff;
+  .wui-grid-item__text {
+    margin-top: 12px;
+  }
 }
 .img {
   width: 100%;
@@ -183,6 +182,6 @@ function click() {
 }
 .text {
   color: #ffb300;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 </style>
